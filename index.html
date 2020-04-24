@@ -17,7 +17,6 @@
     <main>
         <section>
             <div class="container">
-
                     <!-- Step one -->
                     <div class="step-wrapper" data-step="1">
                         <h2 class="center">Elige una de las siguientes opciones.</h1>
@@ -56,15 +55,16 @@
                         <h2>Ahora dime tus ingresos mensuales.</h2> <!-- cambiar dependiendo de la opción del step 1-->
         
                         <div class="content">
-                            <div class="">
-                                <p>Ingresos</p>
-                                <span>$</span> <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
+                            <div class="options">
+                                <div class="text-input-wrapper">
+                                    <p>Ingresos</p>
+                                    <span>$</span> <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                                <div class="text-input-wrapper">
+                                    <p>Gastos</p>
+                                    <span>$</span> <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
                             </div>
-                            <div class="">
-                                <p>Gastos</p>
-                                <span>$</span> <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
-                            </div>
-        
                             <div class="buttons">
                                 <button type="button" class="btn">&larr;</button>
                                 <button type="button" class="btn">&rarr;</button>
@@ -76,7 +76,7 @@
                     <div class="center step-wrapper" data-step="3">
                         <h2>Este es el impuesto según tu salario.</h2>
                         <div class="content">
-                            <div>
+                            <div class="options">
                                 <h3>Salario</h3>
                                 <p>$xxxx.xx</p>
                                 <h3>ISSS</h3>
