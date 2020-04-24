@@ -16,18 +16,77 @@
     </header>
     <main>
         <section>
-            <div class="progress-container">
-                <ul class="progressbar">
-                    <li></li>
-                    <li></li>
-                    <li></li>
-                </ul>
+            <div class="progress">
+                <progress class="progress-bar" min="0" max="100" value="0" step="50" aria-labelledby="form-progress-completion"></progress>
+                
+                <div class="progress-indicator one active"></div>
+                <div class="progress-indicator two"></div>
+                <div class="progress-indicator three"></div>
             </div>
-            <div>
-                <h2>¿Cuentas con dependencia laboral?</h2>
-                <div>
-                    <button class="button button-animation">SI</button>
-                    <button class="button button-animation">NO</button>
+   
+            <div class="container">
+
+                    <!-- Step one -->
+                    <div class="p" data-step="1">
+                        <h2>Elige una de las siguientes opciones.</h1>
+                    
+                        <form action="" name="">
+                            <div class="">
+                                <button>Option 1</button>
+                            </div>
+            
+                            <div class="">
+                                <button>Option 2</button>
+                            </div>
+            
+                            <div class="">
+                                <button>Option 3</button>
+                            </div>
+            
+                            <div class="">
+                                <button type="submit" class="btn">&rarr;</button>
+                            </div>
+                        </form>
+        
+                    </div>
+                
+                    <!-- Step two -->
+                    <div class="" data-step="2">
+                        <h2>Ahora dime tus ingresos mensuales.</h2>
+        
+                        <form action="" name="">
+                                <div class="">
+                                    <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+        
+                                <div class="buttons">
+                                        <button type="button" class="btn">&larr;</button>
+                                        <button type="button" class="btn">&rarr;</button>
+                                </div>
+                        </form>
+        
+                    </div>
+
+                            <!-- Step three -->
+                    <div class="" data-step="3">
+                        <h2>Este es el impuesto según tu salario.</h2>
+                        <h4>Salario</h4>
+                        <p>$xxxx.xx</p>
+                        <h4>ISSS</h4>
+                        <p>$xxxx.xx</p>
+                        <h4>AFP</h4>
+                        <p>$xxxx.xx</p>
+                        <h4>Seccion</h4>
+                        <p>$xxxx.xx</p>
+                        <h4>Impuestos</h4>
+                        <p>$xxxx.xx</p>
+                        <h4>Libres</h4>
+                        <p>$xxxx.xx</p>
+                        <div class="buttons">
+                            <button type="button" class="btn">&larr;</button>
+                            <button type="submit" class="btn">&#8635;</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
