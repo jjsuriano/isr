@@ -6,14 +6,15 @@
 
 html, body {
     font-family: 'Open Sans', sans-serif;
-    background-color: rgb(247, 247, 247);
+    background-color: #eeeeee;
     max-height: 100%;
     min-height: 100%;
     min-width: 320px;
+    color: #222831;
 }
 
 nav {
-    background-color: rgb(38, 53, 83);
+    background-color: #222831;
     width: 100%;
     box-shadow: 0px 4px 4px rgba(2, 2, 2, 0.2);
     font-family: 'Montserrat', sans-serif;
@@ -34,6 +35,8 @@ main {
     border-radius: 10px;
     display: flexbox;
     background-color: rgba(253, 253, 253);
+    max-width: 600px;
+    margin: 0 auto;
 }
 
 section {
@@ -45,22 +48,85 @@ h2 {
     line-height: 1.5;
 }
 
-.btn {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    font-size: 25px;
-    background-color: rgb(247, 163, 94);
-    border: none;
+.content {
+    color: #393e46;
+}
+
+.options {
+    
+    flex-direction: column;
+    width: 100%;
+}
+
+.option-container {
+    margin: 0 auto;
+    max-width: 300px;
+    width: 100%;
+    height: 100px;
+    display: table;
     box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
-    color: rgba(253, 253, 253);
-    text-shadow: 0px -2px 3px rgba(2, 2, 2, 0.2);
+}
+
+.option { 
+    text-decoration: none;
+    color: #393e46;
+    background-color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 100%;
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.option:hover {
+    color: white;
+    background-color: #393e46;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
 }
 
 .text-input {
     box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
     border: none;
     width: 100%;
-    max-width: 500px;
-    height: 50px;
+    max-width: 220px;
+    height: 65px;
+    font-size: 40px;
+    color: #393e46;
+    text-align: right;
 }
+
+span {
+    font-size: 40px;
+}
+
+.btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    font-size: 25px;
+    background-color:#00adb5;
+    border: none;
+    box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
+    color: rgba(253, 253, 253);
+    text-shadow: 0px -2px 3px rgba(2, 2, 2, 0.2);
+}
+
+.btn:hover {
+    background-color: #393e46;
+}
+
