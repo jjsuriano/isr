@@ -194,3 +194,9 @@ span {
     background-color: #515864;
 }
 
+.buttons {
+    display: inline-flex;
+    justify-content: space-around;
+    flex-direction: row;
+    width: 100%;
+}
