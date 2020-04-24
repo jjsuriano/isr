@@ -6,7 +6,7 @@
 }
 
 html, body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     background-color: #eeeeee;
     max-height: 100%;
     min-height: 100%;
@@ -44,7 +44,6 @@ nav {
     background-color: #222831;
     width: 100%;
     box-shadow: 0px 4px 4px rgba(2, 2, 2, 0.2);
-    font-family: 'Montserrat', sans-serif;
 }
 
 nav h1 {
@@ -106,7 +105,7 @@ h2 {
     color: #515864;
     border-radius:4px;
     box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     padding: 15px;
     background-color: #f3f3f3;
 }
@@ -145,11 +144,14 @@ h2 {
 .text-input-wrapper {
     width: 100%;
     margin-bottom: 25px;
+    max-width: 400px;
+    margin: 0 auto;
+    margin-bottom: 15px;
 }
 
 .text-input {
     box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
-    width: calc(100% - 28px);
+    width: calc(100% - 35px);
     border: none;
     height: 65px;
     font-size: 40px;
@@ -157,6 +159,7 @@ h2 {
     text-align: right;
     cursor: text;
     border-radius: 4px;
+    padding: 0px 25px;
 }
 
 .text-input::selection {
@@ -170,18 +173,26 @@ h2 {
 }
 
 .text-input-wrapper p {
-    padding: 10px 0;
+    padding-bottom: 10px;
 }
 
 span {
     font-size: 40px;
+    padding-right: 3px;
+}
+
+.results {
+    display: inline-flex;
+    width: 85%;
+    margin-bottom: 15px;
+    justify-content: space-between;
 }
 
 .btn {
     width: 50px;
     height: 50px;
     border-radius: 50%;
-    font-size: 25px;
+    font-size: 35px;
     background-color:#00adb5;
     border: none;
     box-shadow: 0px 2px 4px rgba(2, 2, 2, 0.2);
