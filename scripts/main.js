@@ -12,9 +12,14 @@ const width = carousel_step[0].clientWidth;
 let option = 0;
 
 next_1.addEventListener('click', ()=> {
-    carousel_container.style.transition = 'transform 0.4s ease-in-out';
-    carousel_container.style.transform = 'translateX('+ -width*1 +'px)';
-    option = document.querySelector().
+    const choice = document.querySelector('input[name=step-1]:checked')
+    if (choice === null) {
+        return;
+    } else {
+        option = choice.value;
+        carousel_container.style.transition = 'transform 0.4s ease-in-out';
+        carousel_container.style.transform = 'translateX('+ -width*1 +'px)';
+    }
 });
 
 prev_2.addEventListener('click', ()=> {
