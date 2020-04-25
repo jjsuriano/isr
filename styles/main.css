@@ -220,4 +220,10 @@ span {
     width: 100%;
 }
 
+@media (hover: none) {
+    .btn:hover {
+       background-color: #00adb5;
+    }
+ }
+
 
