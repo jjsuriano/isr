@@ -61,7 +61,6 @@ main {
     display: flexbox;
     background-color: rgba(253, 253, 253);
     max-width: 600px;
-    margin: 0 auto;
     max-height: 500px;
     margin: 25px auto;
 }
@@ -76,7 +75,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 section {
-    /* overflow: hidden; */
+    overflow: hidden;
     max-width: 600px;
     width: 100%;
 }
