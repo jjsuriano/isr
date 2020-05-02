@@ -232,3 +232,10 @@ span {
        color: #00adb5;
     }
  }
+
+ footer p {
+    display: flex;
+    justify-content: center;
+    color: rgb(205, 205, 205);
+    padding: 10px;
+ }

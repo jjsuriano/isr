@@ -98,6 +98,7 @@ next_1.addEventListener('click', ()=> {
             document.getElementById("2nd-wrapper").hidden = true;
             document.getElementById("3rd-wrapper").hidden = true;
             document.getElementById("4th-wrapper").hidden = true;
+            document.getElementById("1st-header").textContent = "Salario Mensual (requerido)"
         }
 
         if (option == 2) {
@@ -106,6 +107,7 @@ next_1.addEventListener('click', ()=> {
             document.getElementById("2nd-wrapper").hidden = false;
             document.getElementById("3rd-wrapper").hidden = false;
             document.getElementById("4th-wrapper").hidden = false;
+            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
         } 
 
         if (option == 3) {
@@ -114,6 +116,7 @@ next_1.addEventListener('click', ()=> {
             document.getElementById("2nd-wrapper").hidden = false;
             document.getElementById("3rd-wrapper").hidden = true;
             document.getElementById("4th-wrapper").hidden = true;
+            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
         }
         carousel_container.style.transition = 'transform 0.2s ease-in-out';
         indicator = 1;
