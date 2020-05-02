@@ -30,6 +30,16 @@ function formatCurrency(total) {
     return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
 }
 
+function gravado_anual(ingresos, gastos) {
+    let salud = 800;
+    let colegiatura = 800;
+    let gravado = ingresos - salud - colegiatura - gastos;
+    if (gravado <= 4064) {
+      return 0;
+    }
+    return gravado;
+}
+
 // CON DEPENDENCIA LABORAL - - - - -
 
 function isss(salario) {
@@ -73,7 +83,36 @@ function impuesto_planilla_mensual(salario) {
     }
     return (exceso * porcentaje) + cuota;
 }
-  
+
+// SIN DEPENDENCIA LABORAL - - - - -
+
+function impuesto_honorarios_anual(ingresos, gastos){
+    let gravado = gravado_anual(ingresos, gastos)
+    let porcentaje = 0;
+    let base = 0;
+    let cuota = 0;
+    let exceso = 0;
+
+    if (gravado <= 4064) {
+        return 0;
+    } else if (4064.01 <= gravado && gravado <= 9142.86) {
+        porcentaje = 0.1;
+        base = 4064;
+        cuota = 212.12;
+        exceso = gravado - base
+    } else if (9142.87 <= gravado && gravado <= 22857.14) {
+        porcentaje = 0.2;
+        base = 9142.86;
+        cuota = 720;
+        exceso = gravado - base
+    } else if (gravado >= 22857.15) {
+        porcentaje = 0.3;
+        base = 22857.14;
+        cuota = 3462.86;
+        exceso = gravado - base
+    }
+    return (exceso * porcentaje) + cuota
+}
 
 var onresize = function() {
     width_x = document.body.clientWidth;
@@ -134,9 +173,13 @@ prev_2.addEventListener('click', ()=> {
 
 next_2.addEventListener('click', ()=> {
     const income = document.getElementById('1st-input').value;
-    const expenses = document.getElementById('2nd-input').value;
+    let expenses = document.getElementById('2nd-input').value;
     const health = document.getElementById('3rd-input').value;
     const retirement = document.getElementById('4th-input').value;
+
+    if (expenses == "") {
+        expenses = 0
+    }
 
     if (option == 1) {
         if (income == "") {
@@ -151,6 +194,8 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("impuestos").textContent = formatCurrency(tax);
             let result = income - isss(income) - afp(income) - tax;
             document.getElementById("a-pagar").textContent = formatCurrency(result);
+            document.getElementById("isss").textContent = formatCurrency(isss(income));  
+            document.getElementById("afp").textContent = formatCurrency(afp(income)); 
         }
     }
 
@@ -163,6 +208,8 @@ next_2.addEventListener('click', ()=> {
             for (var i = 0; i < results_gastos.length; i++) {
                 results_gastos[i].hidden = false;
             }
+            document.getElementById("isss").textContent = health;
+            document.getElementById("afp").textContent = retirement;
         }
     }
 
@@ -175,12 +222,23 @@ next_2.addEventListener('click', ()=> {
             for (var i = 0; i < results_gastos.length; i++) {
                 results_gastos[i].hidden = false;
             }
+            document.getElementById("isss").textContent = "-";
+            document.getElementById("afp").textContent = "-";
+            document.getElementById("gastos").textContent = formatCurrency(expenses);
+            let tax = impuesto_honorarios_anual(income, expenses);
+            document.getElementById("impuestos").textContent = formatCurrency(tax);
+            let result = tax - (income*0.1);
+            if (result <= 0) {
+                document.getElementById("a-pagar").style.color = "green";
+            } else {
+                document.getElementById("a-pagar").style.color = "red";
+            }
+            document.getElementById("a-pagar").textContent = formatCurrency(result);
         }
     }
  
     document.getElementById("salario").textContent = formatCurrency(income);
-    document.getElementById("isss").textContent = formatCurrency(isss(income));  
-    document.getElementById("afp").textContent = formatCurrency(afp(income));  
+ 
 
     carousel_container.style.transition = 'transform 0.2s ease-in-out';
     indicator = 2;
@@ -215,4 +273,6 @@ reset.addEventListener('click', ()=> {
     for (var i = 0; i < results.length; i++) {
         results[i].textContent = "";
     }
+
+    document.getElementById("a-pagar").style.color = "#4e5563";
 });
