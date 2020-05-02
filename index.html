@@ -36,12 +36,12 @@
                                     </div>
                                 </label>
 
-                                <label> 
+                                <!-- <label> 
                                     <input type="radio" name="step-1" class="card-input" id="" value="3">
                                     <div class="card-body">
                                         Tengo empleo y presto servicios profesionales.
                                     </div>
-                                </label>          
+                                </label>           -->
                             </div>
                                 
                             <div class="center buttons">
@@ -52,7 +52,7 @@
                 
                     <!-- Step two -->
                     <div class="center step-wrapper" data-step="2">
-                        <h2>Ahora dime tus ingresos mensuales.</h2> <!-- cambiar dependiendo de la opción del step 1-->
+                        <h2>Ahora dime tus ingresos anuales.</h2> <!-- cambiar dependiendo de la opción del step 1-->
         
                         <div class="content">
                             <div class="options">
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="text-input-wrapper">
                                     <p>Gastos</p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" type="number" min="0.01" step="0.01" max="150000">
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input 2nd-input" type="number" min="0.01" step="0.01" max="150000">
                                 </div>
                             </div>
                             <div class="buttons">
@@ -79,27 +79,32 @@
                             <div class="options">
                                 <div class="results salario">
                                     <h3>Salario</h3>
-                                    <p>$xxxx.xx</p>
+                                    <p class="results-value" id="salario">$xxx.xx</p>
+                                </div>
+
+                                <div class="results gastos">
+                                    <h3>(-) Gastos</h3>
+                                    <p class="results-value" id="gastos">$xxx.xx</p>
                                 </div>
 
                                 <div class="results isss">
                                     <h3>(-) ISSS</h3>
-                                    <p>$xxxx.xx</p>
+                                    <p class="results-value" id="iss">$xxx.xx</p>
                                 </div>
 
                                 <div class="results afp">
                                     <h3>(-) AFP</h3>
-                                    <p>$xxxx.xx</p>
+                                    <p class="results-value" id="afp">$xxx.xx</p>
                                 </div>
                                 
                                 <div class="results impuestos">
                                     <h3>(-) Impuestos</h3>
-                                    <p>$xxxx.xx</p>
+                                    <p class="results-value" id="impuestos">$xxx.xx</p>
                                 </div>
                                 
-                                <div class="results libres">
-                                    <h3>Libres</h3>
-                                    <p>$xxxx.xx</p>
+                                <div class="results a-pagar">
+                                    <h3>Valor a Pagar</h3>
+                                    <p class="results-value" id="a-pagar">$xxx.xx</p>
                                 </div>
                             </div>
     
