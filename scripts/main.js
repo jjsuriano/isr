@@ -24,7 +24,7 @@ function formatCurrency(total) {
     }
 
     if (isNaN(total) || total == 0) {
-      return ""
+      return "$0.00"
     }
 
     return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
@@ -53,10 +53,8 @@ function impuesto_planilla_mensual(salario) {
     let cuota = 0;
     let exceso = 0;
 
-    console.log(gravado)
-
     if (gravado <= 472) {
-        return 0;
+        return 0.0;
     } else if (472.01 <= gravado && gravado <= 895.24) {
         porcentaje = 0.1;
         base = 472;
