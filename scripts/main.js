@@ -17,7 +17,7 @@ let gastos = 0;
 // FUNCTIONS = = = = =
 
 function formatCurrency(total) {
-    var neg = false;
+    let neg = false;
     if(total < 0) {
         neg = true;
         total = Math.abs(total);
@@ -29,6 +29,53 @@ function formatCurrency(total) {
 
     return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
 }
+
+// CON DEPENDENCIA LABORAL - - - - -
+
+function isss(salario) {
+    if (salario > 1000) {
+      return 1000*0.03
+    }
+    return salario*0.03
+}
+
+function afp(salario) {
+    if (salario > 6500) {
+        return 6500*0.0725
+    }
+    return salario*0.0725
+}
+
+function impuesto_planilla_mensual(salario) {
+    const gravado = salario - isss(salario) - afp(salario);
+    let porcentaje = 0;
+    let base = 0;
+    let cuota = 0;
+    let exceso = 0;
+
+    console.log(gravado)
+
+    if (gravado <= 472) {
+        return 0;
+    } else if (472.01 <= gravado && gravado <= 895.24) {
+        porcentaje = 0.1;
+        base = 472;
+        cuota = 17.67;
+        exceso = gravado - base;
+    } else if (895.25 <= gravado && gravado <= 2038.10) {
+        porcentaje = 0.2;
+        base = 895.24;
+        cuota = 50;
+        exceso = gravado - base
+    } else if (gravado >= 2038.11) {
+        porcentaje = 0.3;
+        base = 2038.10;
+        cuota = 288.57;
+        exceso = gravado - base;
+    }
+    return (exceso * porcentaje) + cuota;
+}
+  
 
 var onresize = function() {
     width_x = document.body.clientWidth;
@@ -48,13 +95,27 @@ next_1.addEventListener('click', ()=> {
         option = choice.value;
 
         if (option == 1) {
-            document.getElementsByClassName("2nd-input")[0].value = 1600.00
-            document.getElementsByClassName("2nd-input")[0].setAttribute("disabled", "disabled");
-        } 
-        
+            document.getElementById("2nd-input").value = ""
+            document.getElementById("2nd-input").removeAttribute("disabled", "disabled");
+            document.getElementById("2nd-wrapper").hidden = true;
+            document.getElementById("3rd-wrapper").hidden = true;
+            document.getElementById("4th-wrapper").hidden = true;
+        }
+
         if (option == 2) {
-            document.getElementsByClassName("2nd-input")[0].value = ""
-            document.getElementsByClassName("2nd-input")[0].removeAttribute("disabled", "disabled");
+            document.getElementById("2nd-input").value = 1600.00
+            document.getElementById("2nd-input").setAttribute("disabled", "disabled");
+            document.getElementById("2nd-wrapper").hidden = false;
+            document.getElementById("3rd-wrapper").hidden = false;
+            document.getElementById("4th-wrapper").hidden = false;
+        } 
+
+        if (option == 3) {
+            document.getElementById("2nd-input").value = ""
+            document.getElementById("2nd-input").removeAttribute("disabled", "disabled");
+            document.getElementById("2nd-wrapper").hidden = false;
+            document.getElementById("3rd-wrapper").hidden = true;
+            document.getElementById("4th-wrapper").hidden = true;
         }
         carousel_container.style.transition = 'transform 0.2s ease-in-out';
         indicator = 1;
@@ -71,27 +132,58 @@ prev_2.addEventListener('click', ()=> {
 });
 
 next_2.addEventListener('click', ()=> {
-    const income = document.getElementsByClassName('text-input')[0].value;
-    if (income === "") {
-        return;
-    } else {
+    const income = document.getElementById('1st-input').value;
+    const expenses = document.getElementById('2nd-input').value;
+    const health = document.getElementById('3rd-input').value;
+    const retirement = document.getElementById('4th-input').value;
 
-        ingresos = income
-
-        document.getElementById("salario").textContent = formatCurrency(income);  
-
-        if (option == 1) {
-            
+    if (option == 1) {
+        if (income == "") {
+            return;
+        } else {
+            document.getElementById("header-results-a-pagar").textContent = "Libres";
+            var results_gastos = document.getElementsByClassName("results-gastos");
+            for (var i = 0; i < results_gastos.length; i++) {
+                results_gastos[i].hidden = true;
+            }
+            let tax = impuesto_planilla_mensual(income);
+            document.getElementById("impuestos").textContent = formatCurrency(tax);
+            let result = income - isss(income) - afp(income) - tax;
+            document.getElementById("a-pagar").textContent = formatCurrency(result);
         }
-
-        if (option == 2) {
-
-        }
-
-        carousel_container.style.transition = 'transform 0.2s ease-in-out';
-        indicator = 2;
-        carousel_container.style.transform = 'translateX('+ -width*2 +'px)';
     }
+
+    if (option == 2) {
+        if (income == "" || health == "" || retirement == "") {
+            return;
+        } else {
+            document.getElementById("header-results-a-pagar").textContent = "Valor a Pagar";
+            var results_gastos = document.getElementsByClassName("results-gastos");
+            for (var i = 0; i < results_gastos.length; i++) {
+                results_gastos[i].hidden = false;
+            }
+        }
+    }
+
+    if (option == 3) {
+        if (income == "") {
+            return;
+        } else {
+            document.getElementById("header-results-a-pagar").textContent = "Valor a Pagar";
+            var results_gastos = document.getElementsByClassName("results-gastos");
+            for (var i = 0; i < results_gastos.length; i++) {
+                results_gastos[i].hidden = false;
+            }
+        }
+    }
+ 
+    document.getElementById("salario").textContent = formatCurrency(income);
+    document.getElementById("isss").textContent = formatCurrency(isss(income));  
+    document.getElementById("afp").textContent = formatCurrency(afp(income));  
+
+    carousel_container.style.transition = 'transform 0.2s ease-in-out';
+    indicator = 2;
+    carousel_container.style.transform = 'translateX('+ -width*2 +'px)';
 });
 
 prev_3.addEventListener('click', ()=> {
