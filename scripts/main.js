@@ -152,7 +152,7 @@ next_1.addEventListener('click', ()=> {
         if (option == 2) {
             document.getElementById("2nd-input").value = 1600.00
             document.getElementById("2nd-input").setAttribute("disabled", "disabled");
-            document.getElementById("2nd-wrapper").hidden = false;
+            document.getElementById("2nd-wrapper").hidden = true;
             document.getElementById("3rd-wrapper").hidden = false;
             document.getElementById("4th-wrapper").hidden = false;
             document.getElementById("5th-wrapper").hidden = false;
