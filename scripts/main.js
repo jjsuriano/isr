@@ -41,10 +41,17 @@ function gravado_anual(ingresos, gastos) {
 }
 
 function colorCode(result) {
-    if (result <= 0) {
-        document.getElementById("a-pagar").style.color = "green";
+    if (result < 0) {
+        document.getElementById("results-main-header").textContent = "Según tus ingresos, te devolverán dinero.";
+        document.getElementById("header-6th").textContent = "Te toca recibir";
+        document.getElementById("results-6th").style.color = "green";
+    } else if (result > 0) {
+        document.getElementById("results-main-header").textContent = "Según tus ingresos, te toca pagar más impuestos.";
+        document.getElementById("header-6th").textContent = "Te toca pagar";
+        document.getElementById("results-6th").style.color = "red";
     } else {
-        document.getElementById("a-pagar").style.color = "red";
+        document.getElementById("results-main-header").textContent = "Según tus ingresos, no debes ni te deben.";
+        document.getElementById("header-6th").textContent = "Diferencia";
     }
 }
 
@@ -140,33 +147,31 @@ next_1.addEventListener('click', ()=> {
         option = choice.value;
 
         if (option == 1) {
+            document.getElementById("1st-header").textContent = "Salario mensual (requerido)"
             document.getElementById("2nd-input").value = ""
-            document.getElementById("2nd-input").removeAttribute("disabled", "disabled");
             document.getElementById("2nd-wrapper").hidden = true;
             document.getElementById("3rd-wrapper").hidden = true;
             document.getElementById("4th-wrapper").hidden = true;
             document.getElementById("5th-wrapper").hidden = true;
-            document.getElementById("1st-header").textContent = "Salario Mensual (requerido)"
         }
 
         if (option == 2) {
+            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = 1600.00
-            document.getElementById("2nd-input").setAttribute("disabled", "disabled");
             document.getElementById("2nd-wrapper").hidden = true;
             document.getElementById("3rd-wrapper").hidden = false;
             document.getElementById("4th-wrapper").hidden = false;
             document.getElementById("5th-wrapper").hidden = false;
-            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
+            
         } 
 
         if (option == 3) {
+            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = ""
-            document.getElementById("2nd-input").removeAttribute("disabled", "disabled");
             document.getElementById("2nd-wrapper").hidden = false;
             document.getElementById("3rd-wrapper").hidden = true;
             document.getElementById("4th-wrapper").hidden = true;
             document.getElementById("5th-wrapper").hidden = true;
-            document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
         }
         carousel_container.style.transition = 'transform 0.2s ease-in-out';
         indicator = 1;
@@ -187,6 +192,7 @@ next_2.addEventListener('click', ()=> {
     let expenses = document.getElementById('2nd-input').value;
     const health = document.getElementById('3rd-input').value;
     const retirement = document.getElementById('4th-input').value;
+    const retention = document.getElementById('5th-input').value;
 
     if (expenses == "") {
         expenses = 0
@@ -196,14 +202,27 @@ next_2.addEventListener('click', ()=> {
         if (income == "") {
             return;
         } else {
-            document.getElementById("header-results-a-pagar").textContent = "Libres";
-            document.getElementById("gastos").textContent = "-";
+            document.getElementById("results-main-header").textContent = "Tu salario mensual se divide de la siguiente manera.";
+            
+            document.getElementById("header-1st").textContent = "Salario mensual";
+            document.getElementById("results-1st").textContent = formatCurrency(income); 
+            
+            document.getElementById("header-2nd").textContent = "(-) ISSS";
+            document.getElementById("results-2nd").textContent = formatCurrency(isss(income));  
+
+            document.getElementById("header-3rd").textContent = "(-) AFP";
+            document.getElementById("results-3rd").textContent = formatCurrency(afp(income)); 
+            
             let tax = impuesto_planilla_mensual(income);
-            document.getElementById("impuestos").textContent = formatCurrency(tax);
+            document.getElementById("header-4th").textContent = "(-) Impuestos";
+            document.getElementById("results-4th").textContent = formatCurrency(tax);
+
+            document.getElementById("header-5th").textContent = "";
+            document.getElementById("results-5th").textContent = "";
+
             let result = income - isss(income) - afp(income) - tax;
-            document.getElementById("a-pagar").textContent = formatCurrency(result);
-            document.getElementById("isss").textContent = formatCurrency(isss(income));  
-            document.getElementById("afp").textContent = formatCurrency(afp(income)); 
+            document.getElementById("header-6th").textContent = "Libres";
+            document.getElementById("results-6th").textContent = formatCurrency(result);
         }
     }
 
@@ -211,13 +230,26 @@ next_2.addEventListener('click', ()=> {
         if (income == "" || health == "" || retirement == "") {
             return;
         } else {
-            document.getElementById("header-results-a-pagar").textContent = "Valor a Pagar";
-            document.getElementById("isss").textContent = formatCurrency(health);
-            document.getElementById("afp").textContent = formatCurrency(retirement);
-            document.getElementById("gastos").textContent = formatCurrency(expenses);
-            let result = 0;
+            document.getElementById("header-1st").textContent = "Ingresos";
+            document.getElementById("results-1st").textContent = formatCurrency(income); 
+            
+            document.getElementById("header-2nd").textContent = "(-) Gastos";
+            document.getElementById("results-2nd").textContent = formatCurrency(expenses); 
+
+            let tax = impuesto_honorarios_anual(income, expenses);
+            document.getElementById("header-3rd").textContent = "(-) ISSS";
+            document.getElementById("results-3rd").textContent = formatCurrency(health);  
+
+            document.getElementById("header-4th").textContent = "(-) AFP";
+            document.getElementById("results-4th").textContent = formatCurrency(retirement);
+
+            document.getElementById("header-5th").textContent = "Retenciones";
+            document.getElementById("results-5th").textContent = formatCurrency(retention);
+
+            let result = tax - (income*0.1);
             colorCode(result)
-            document.getElementById("a-pagar").textContent = formatCurrency(result);
+            document.getElementById("results-6th").textContent = formatCurrency(result);
+
         }
     }
 
@@ -225,20 +257,27 @@ next_2.addEventListener('click', ()=> {
         if (income == "") {
             return;
         } else {
-            document.getElementById("header-results-a-pagar").textContent = "Valor a Pagar";
-            document.getElementById("isss").textContent = "-";
-            document.getElementById("afp").textContent = "-";
-            document.getElementById("gastos").textContent = formatCurrency(expenses);
+            document.getElementById("header-1st").textContent = "Ingresos";
+            document.getElementById("results-1st").textContent = formatCurrency(income); 
+            
+            document.getElementById("header-2nd").textContent = "(-) Gastos";
+            document.getElementById("results-2nd").textContent = formatCurrency(expenses); 
+
             let tax = impuesto_honorarios_anual(income, expenses);
-            document.getElementById("impuestos").textContent = formatCurrency(tax);
+            document.getElementById("header-3rd").textContent = "(-) Impuestos";
+            document.getElementById("results-3rd").textContent = formatCurrency(tax);  
+
+            document.getElementById("header-4th").textContent = "Retenciones";
+            document.getElementById("results-4th").textContent = formatCurrency(income*0.1);
+
+            document.getElementById("header-5th").textContent = "";
+            document.getElementById("results-5th").textContent = "";
+
             let result = tax - (income*0.1);
             colorCode(result)
-            document.getElementById("a-pagar").textContent = formatCurrency(result);
+            document.getElementById("results-6th").textContent = formatCurrency(result);
         }
     }
- 
-    document.getElementById("salario").textContent = formatCurrency(income);
- 
 
     carousel_container.style.transition = 'transform 0.2s ease-in-out';
     indicator = 2;
@@ -274,5 +313,5 @@ reset.addEventListener('click', ()=> {
         results[i].textContent = "";
     }
 
-    document.getElementById("a-pagar").style.color = "#4e5563";
+    document.getElementById("results-6th").style.color = "#4e5563";
 });
