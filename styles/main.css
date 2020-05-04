@@ -176,6 +176,8 @@ h2 {
     cursor: text;
     border-radius: 4px;
     padding: 0px 25px;
+    background-color: #eeeeee;
+    -webkit-appearance: none;
 }
 
 .text-input::selection {
