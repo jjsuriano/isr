@@ -30,28 +30,18 @@ function formatCurrency(total) {
     return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
 }
 
-function gravado_anual(ingresos, gastos) {
-    let salud = 800;
-    let colegiatura = 800;
-    let gravado = ingresos - salud - colegiatura - gastos;
-    if (gravado <= 4064) {
-      return 0;
-    }
-    return gravado;
-}
-
 function colorCode(result) {
     if (result < 0) {
         document.getElementById("results-main-header").textContent = "Según tus ingresos, te devolverán dinero.";
-        document.getElementById("header-6th").textContent = "Te toca recibir";
-        document.getElementById("results-6th").style.color = "green";
+        document.getElementById("header-7th").textContent = "Te toca recibir";
+        document.getElementById("results-7th").style.color = "green";
     } else if (result > 0) {
         document.getElementById("results-main-header").textContent = "Según tus ingresos, te toca pagar más impuestos.";
-        document.getElementById("header-6th").textContent = "Te toca pagar";
-        document.getElementById("results-6th").style.color = "red";
+        document.getElementById("header-7th").textContent = "Te toca pagar";
+        document.getElementById("results-7th").style.color = "red";
     } else {
         document.getElementById("results-main-header").textContent = "Según tus ingresos, no debes ni te deben.";
-        document.getElementById("header-6th").textContent = "Diferencia";
+        document.getElementById("header-7th").textContent = "Diferencia";
     }
 }
 
@@ -101,8 +91,12 @@ function impuesto_planilla_mensual(salario) {
 
 // SIN DEPENDENCIA LABORAL - - - - -
 
-function impuesto_honorarios_anual(ingresos, gastos){
-    let gravado = gravado_anual(ingresos, gastos)
+function impuestos_anual(ingresos, gastos, isss, afp){
+
+    let salud = 800;
+    let colegiatura = 800;
+    let gravado = ingresos -isss - afp - salud - colegiatura - gastos;
+
     let porcentaje = 0;
     let base = 0;
     let cuota = 0;
@@ -220,9 +214,12 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("header-5th").textContent = "";
             document.getElementById("results-5th").textContent = "";
 
+            document.getElementById("header-6th").textContent = "";
+            document.getElementById("results-6th").textContent = "";
+
             let result = income - isss(income) - afp(income) - tax;
-            document.getElementById("header-6th").textContent = "Libres";
-            document.getElementById("results-6th").textContent = formatCurrency(result);
+            document.getElementById("header-7th").textContent = "Libres";
+            document.getElementById("results-7th").textContent = formatCurrency(result);
         }
     }
 
@@ -236,20 +233,22 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("header-2nd").textContent = "(-) Gastos";
             document.getElementById("results-2nd").textContent = formatCurrency(expenses); 
 
-            let tax = impuesto_honorarios_anual(income, expenses);
             document.getElementById("header-3rd").textContent = "(-) ISSS";
             document.getElementById("results-3rd").textContent = formatCurrency(health);  
 
             document.getElementById("header-4th").textContent = "(-) AFP";
             document.getElementById("results-4th").textContent = formatCurrency(retirement);
 
-            document.getElementById("header-5th").textContent = "Retenciones";
-            document.getElementById("results-5th").textContent = formatCurrency(retention);
+            let tax = impuestos_anual(income, 0, health, retirement);
+            document.getElementById("header-5th").textContent = "(-) Impuestos";
+            document.getElementById("results-5th").textContent = formatCurrency(tax);
 
-            let result = tax - (income*0.1);
+            document.getElementById("header-6th").textContent = "Retenciones";
+            document.getElementById("results-6th").textContent = formatCurrency(retention);
+
+            let result = tax - retention;
             colorCode(result)
-            document.getElementById("results-6th").textContent = formatCurrency(result);
-
+            document.getElementById("results-7th").textContent = formatCurrency(result);
         }
     }
 
@@ -263,7 +262,7 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("header-2nd").textContent = "(-) Gastos";
             document.getElementById("results-2nd").textContent = formatCurrency(expenses); 
 
-            let tax = impuesto_honorarios_anual(income, expenses);
+            let tax = impuestos_anual(income, expenses, 0, 0);
             document.getElementById("header-3rd").textContent = "(-) Impuestos";
             document.getElementById("results-3rd").textContent = formatCurrency(tax);  
 
@@ -273,9 +272,12 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("header-5th").textContent = "";
             document.getElementById("results-5th").textContent = "";
 
+            document.getElementById("header-6th").textContent = "";
+            document.getElementById("results-6th").textContent = "";
+
             let result = tax - (income*0.1);
             colorCode(result)
-            document.getElementById("results-6th").textContent = formatCurrency(result);
+            document.getElementById("results-7th").textContent = formatCurrency(result);
         }
     }
 
