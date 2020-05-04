@@ -141,7 +141,7 @@ next_1.addEventListener('click', ()=> {
         option = choice.value;
 
         if (option == 1) {
-            document.getElementById("2nd-main-header-note").hidden = true;
+            document.getElementById("2nd-main-header-note").textContent = "";
             document.getElementById("1st-header").textContent = "Salario mensual (requerido)"
             document.getElementById("2nd-input").value = ""
             document.getElementById("2nd-wrapper").hidden = true;
@@ -151,7 +151,7 @@ next_1.addEventListener('click', ()=> {
         }
 
         if (option == 2) {
-            document.getElementById("2nd-main-header-note").hidden = false;
+            document.getElementById("2nd-main-header-note").textContent = "No te preocupes de los $800 de salud y $800 de colegiatura, estos se agregan automáticamente.";
             document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = 1600.00
             document.getElementById("2nd-wrapper").hidden = true;
@@ -161,6 +161,7 @@ next_1.addEventListener('click', ()=> {
         } 
 
         if (option == 3) {
+            document.getElementById("2nd-main-header-note").textContent = "No te preocupes de los $800 de salud y $800 de colegiatura, estos se agregan automáticamente.";
             document.getElementById("2nd-main-header-note").hidden = false;
             document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = ""
