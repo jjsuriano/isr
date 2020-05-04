@@ -141,6 +141,7 @@ next_1.addEventListener('click', ()=> {
         option = choice.value;
 
         if (option == 1) {
+            document.getElementById("2nd-main-header-note").hidden = true;
             document.getElementById("1st-header").textContent = "Salario mensual (requerido)"
             document.getElementById("2nd-input").value = ""
             document.getElementById("2nd-wrapper").hidden = true;
@@ -150,16 +151,17 @@ next_1.addEventListener('click', ()=> {
         }
 
         if (option == 2) {
+            document.getElementById("2nd-main-header-note").hidden = false;
             document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = 1600.00
             document.getElementById("2nd-wrapper").hidden = true;
             document.getElementById("3rd-wrapper").hidden = false;
             document.getElementById("4th-wrapper").hidden = false;
             document.getElementById("5th-wrapper").hidden = false;
-            
         } 
 
         if (option == 3) {
+            document.getElementById("2nd-main-header-note").hidden = false;
             document.getElementById("1st-header").textContent = "Ingresos en el año (requerido)"
             document.getElementById("2nd-input").value = ""
             document.getElementById("2nd-wrapper").hidden = false;
@@ -217,8 +219,10 @@ next_2.addEventListener('click', ()=> {
             document.getElementById("header-6th").textContent = "";
             document.getElementById("results-6th").textContent = "";
 
+            document.getElementById("results-6th").style.color = "#4e5563";
+
             let result = income - isss(income) - afp(income) - tax;
-            document.getElementById("header-7th").textContent = "Libres";
+            document.getElementById("header-7th").textContent = "Líquido a recibir";
             document.getElementById("results-7th").textContent = formatCurrency(result);
         }
     }
