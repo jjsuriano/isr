@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Impuestos para Empleados en El Salvador</title>
+    <link rel="stylesheet" href="styles/main2.css">
+</head>
+<body>
+    <main>
+        <section class="page" id="starting-page">
+            <h1 id="starting-header">Elige una de las siguientes opciones</h1>
+            <div class="content">
+                <form action="">
+                    <label class="card">
+                        <input type="radio" name="main-choices" id="choice-1" value="1">
+                        <div class="card-body">
+                            <p>Tengo un <span class="highlight-red">empleo con dependencia laboral</span> y quiero saber cuánto de <span class="highlight-blue">salario mensual</span> me queda <span class="highlight-blue">a mi</span>.</p>
+                        </div>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="main-choices" id="choice-2" value="2">
+                        <div class="card-body">
+                            <p>Tengo un <span class="highlight-red">empleo con dependencia laboral</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
+                        </div>
+                    </label>
+
+                    <label class="card">
+                        <input type="radio" name="main-choices" id="choice-3" value="3">
+                        <div class="card-body">
+                            <p>Presto <span class="highlight-red">servicios profesionales</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
+                        </div>
+                    </label>
+                </form>
+            </div>
+        </section>
+
+        <section class="page" id="input-page">
+            <h1 id="input-header">Necesito que me digas tus ingresos mensuales</h1>
+            <div class="content">
+                <label>
+                    <input type="text" name="name" id="name">
+                </label>
+                
+            </div>
+        </section>
+
+        <section class="page" id="results-page">
+            <h1 id="results-header">Si tus ingresos mensuales son de <span class="highlight-blue" id="result-income">$xxxx</span></h1>
+            <div class="content">
+                <p>
+                    Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">$xxxx</span>, 
+                    tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">$xxxx</span>. 
+                    Esto significa que entras en el <span class="highlight-red" id="result-tramo">tramo XX</span> para el cálculo de tus impuestos. 
+                    Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">$xxxx</span> 
+                    y el <span class="highlight-red" id="result-porcentaje">xx%</span> de <span class="highlight-red" id="result-porcion">$xxxx</span>, 
+                    sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">$xxxx</span> de <span class="highlight-red">impuestos</span>.
+                    Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">$xxxx</span> para comprar y ahorrar. 
+                </p>
+            </div>
+        </section>
+
+
+
+    </main>
+</body>
+</html>

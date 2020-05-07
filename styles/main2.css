@@ -1,0 +1,35 @@
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: #242a35;
+    color: rgb(191, 194, 201);
+    overflow: hidden;
+    font-size: 1.1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 2rem;
+    letter-spacing: 0.1rem;
+}
+
+main {
+    overflow: scroll;
+    height: 100vh;
+    scroll-snap-type: mandatory;
+    scroll-snap-points-y: repeat(100vh);
+    scroll-snap-type: y mandatory;
+}
+
+section {
+    height: 100vh;
+    width: 100vw;
+    scroll-snap-align: start;
+}
+
+.highlight-blue {
+    color: #5da6a8;
+}
+
+.highlight-red {
+    color: #b96262;
+}
