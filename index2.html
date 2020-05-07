@@ -11,7 +11,7 @@
         <section class="page" id="starting-page">
             <h1 id="starting-header">Elige una de las siguientes opciones</h1>
             <div class="content">
-                <form action="">
+                <form action="" class="cards">
                     <label class="card">
                         <input type="radio" name="main-choices" id="choice-1" value="1">
                         <div class="card-body">
@@ -36,13 +36,17 @@
             </div>
         </section>
 
-        <section class="page" id="input-page">
-            <h1 id="input-header">Necesito que me digas tus ingresos mensuales</h1>
+        <section class="page" id="input-page-1">
+            <h1 id="input-header">Necesito que me digas lo siguiente</h1>
             <div class="content">
+                <p class="note">
+                    El salario que recibes en el mes. <br><br>Salario también es conocido como
+                    renumeración, sueldo o estipendio.
+                </p>
+                <br>
                 <label>
-                    <input type="text" name="name" id="name">
+                    <input type="number" name="name" id="name">
                 </label>
-                
             </div>
         </section>
 
@@ -58,11 +62,10 @@
                     sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">$xxxx</span> de <span class="highlight-red">impuestos</span>.
                     Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">$xxxx</span> para comprar y ahorrar. 
                 </p>
+                <br>
+                <p class="button" id="reset">REINICIAR</p>
             </div>
         </section>
-
-
-
     </main>
 </body>
 </html>
