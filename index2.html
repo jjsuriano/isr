@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,8 +8,25 @@
 </head>
 <body>
     <main>
+        <section class="page" id="welcome">
+            <div class="header">
+                <h1>¡Hola!</h1>
+            </div>
+            <div class="content">
+                <p>
+                    <span class="highlight-blue">Muchas personas no saben como se calculan los impuestos.</span><br><br>
+                    Si eres una de esas personas y trabajas en El Salvador, lo más probable es que yo te pueda ayudar.
+                </p>
+                <br>
+                <br>
+                <p class="button">COMENZAR</p>
+            </div>
+            
+        </section>
         <section class="page" id="starting-page">
-            <h1 id="starting-header">Elige una de las siguientes opciones</h1>
+            <div class="header">
+                <h1 id="starting-header">Elige una de las siguientes opciones</h1>
+            </div>
             <div class="content">
                 <form action="" class="cards">
                     <label class="card">
@@ -19,7 +36,7 @@
                         </div>
                     </label>
 
-                    <label class="card">
+                    <!-- <label class="card">
                         <input type="radio" name="main-choices" id="choice-2" value="2">
                         <div class="card-body">
                             <p>Tengo un <span class="highlight-red">empleo con dependencia laboral</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
@@ -31,21 +48,21 @@
                         <div class="card-body">
                             <p>Presto <span class="highlight-red">servicios profesionales</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
                         </div>
-                    </label>
+                    </label> -->
                 </form>
             </div>
         </section>
 
         <section class="page" id="input-page-1">
-            <h1 id="input-header">Necesito que me digas lo siguiente</h1>
+            <h1 id="input-header">Ahora necesito que me digas lo siguiente</h1>
             <div class="content">
                 <p class="note">
-                    El salario que recibes en el mes. <br><br>Salario también es conocido como
+                    <span class="highlight-blue">Tu salario mensual.</span> <br><br>Salario también es conocido como
                     renumeración, sueldo o estipendio.
                 </p>
                 <br>
                 <label>
-                    <input type="number" name="name" id="name">
+                    <input type="number" name="input-field" id="input-1" class="input-number">
                 </label>
             </div>
         </section>
@@ -54,18 +71,25 @@
             <h1 id="results-header">Si tus ingresos mensuales son de <span class="highlight-blue" id="result-income">$xxxx</span></h1>
             <div class="content">
                 <p>
-                    Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">$xxxx</span>, 
-                    tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">$xxxx</span>. 
-                    Esto significa que entras en el <span class="highlight-red" id="result-tramo">tramo XX</span> para el cálculo de tus impuestos. 
-                    Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">$xxxx</span> 
-                    y el <span class="highlight-red" id="result-porcentaje">xx%</span> de <span class="highlight-red" id="result-porcion">$xxxx</span>, 
-                    sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">$xxxx</span> de <span class="highlight-red">impuestos</span>.
-                    Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">$xxxx</span> para comprar y ahorrar. 
+                        Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">$xxxx</span>, 
+                        tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">$xxxx</span>. 
+                </p> <br>
+                <p> 
+                        Esto significa que entras en el <span class="highlight-red" id="result-tramo">tramo XX</span> para el cálculo de tus impuestos. 
+                        Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">$xxxx</span> 
+                        y el <span class="highlight-red" id="result-porcentaje">xx%</span> de <span class="highlight-red" id="result-porcion">$xxxx</span>, 
+                        sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">$xxxx</span> de <span class="highlight-red">impuestos</span>.
+                </p> <br>
+                <p>     Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">$xxxx</span> para comprar y ahorrar. 
                 </p>
+                <br>
                 <br>
                 <p class="button" id="reset">REINICIAR</p>
             </div>
         </section>
     </main>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="scripts/main2.js"></script>
 </body>
 </html>
