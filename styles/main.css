@@ -15,6 +15,7 @@ html, body {
     cursor: default;
     position: fixed;
 }
+
 p {
     margin: 0;
     padding: 0;
@@ -59,7 +60,7 @@ h1 {
     line-height: 2rem;
     padding: 0 25px;
     max-width: 100%;
-    margin: 15px auto;
+    margin: 0 auto 25px auto;
 }
 
 .highlight-blue {
@@ -152,4 +153,22 @@ input[type="number"] {
     border-radius: 5px;
 }
 
-/* - - - - - RESULTS PAGE - - - - - */
+/* - - - - - LARGER SCREENS - - - - - */
+
+@media only screen and (min-width: 720px) {
+    body {
+        font-size: 2rem;
+        font-family: 'Open Sans', sans-serif;
+        line-height: 2.25rem;
+        letter-spacing: 0.2rem;
+    }
+
+    .cards {
+        max-width: 700px;
+    }
+
+    h1 {
+        margin: 0 auto 50px auto;
+        line-height: 3rem;
+    }
+  }

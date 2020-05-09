@@ -66,7 +66,7 @@ $(document).ready(function(){
                 tramo = "IV";
             }
 
-            let part1 = 'Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span>, tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+            let part1 = 'Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
             let part2 = '<br><br>Esto significa que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">' + cuota + '</span> y el <span class="highlight-red" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-red" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-red">impuestos</span>.';
             let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">'+ liquidos +'</span> para comprar y ahorrar.';
             return part1 + part2 + part3;
