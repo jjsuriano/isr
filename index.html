@@ -3,148 +3,83 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Impuestos de mis ingresos en El Salvador</title>
+    <title>Calculadora de Impuestos para Empleados en El Salvador</title>
     <link rel="stylesheet" href="styles/main.css">
-    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 </head>
 <body>
-    <header>
-        <nav>
-            <h1>Calcula el impuesto sobre la renta de tus ingresos en El Salvador.</h1>
-        </nav>
-    </header>
     <main>
-        <section>
-            <div class="container" id="box">
-                    <!-- Step one -->
-                    <div class="step-wrapper" data-step="1">
-                        <h2 class="center">Elige una de las siguientes opciones.</h1>
-                        <div class="content">
-                            <div class="options">
-                                <label> 
-                                    <input type="radio" name="step-1" class="card-input" id="" value="1">
-                                    <div class="card-body">
-                                        Tengo un empleo con dependencia laboral y quiero saber cuánto de mi salario mensual me queda libre.
-                                    </div>
-                                </label>
-
-                                <label> 
-                                    <input type="radio" name="step-1" class="card-input" id="" value="2">
-                                    <div class="card-body">
-                                        Tengo un empleo con dependencia laboral y quiero saber el valor a pagar al final del año.
-                                    </div>
-                                </label>
-
-                                <label> 
-                                    <input type="radio" name="step-1" class="card-input" id="" value="3">
-                                    <div class="card-body">
-                                        Presto servicios profesionales y quiero saber el valor a pagar al final del año.
-                                    </div>
-                                </label>
-
-                                <!-- <label> 
-                                    <input type="radio" name="step-1" class="card-input" id="" value="3">
-                                    <div class="card-body">
-                                        Tengo empleo y presto servicios profesionales.
-                                    </div>
-                                </label>           -->
-                            </div>
-                                
-                            <div class="center buttons">
-                                <i class="fa fa-arrow-circle-right fa-3x btn" id="next-1" title="Siguiente"></i>
-                            </div>
+        <section class="page" id="welcome">
+            <div class="header">
+                <h1>¡Hola!</h1>
+            </div>
+            <div class="content">
+                <p>
+                    <span class="highlight-blue">Muchas personas no saben como se calculan los impuestos.</span><br><br>
+                    Si eres una de esas personas y trabajas en El Salvador, lo más probable es que yo te pueda ayudar.
+                </p>
+                <br>
+                <br>
+                <p class="button" id="start">COMENZAR</p>
+            </div>
+            
+        </section>
+        <section class="page" id="starting-page">
+            <div class="header">
+                <h1 id="starting-header">Elige una de las siguientes opciones</h1>
+            </div>
+            <div class="content">
+                <form action="" class="cards">
+                    <label class="card">
+                        <input type="radio" name="main-choices" id="choice-1" value="1">
+                        <div class="card-body">
+                            <p>Tengo un <span class="highlight-red">empleo con dependencia laboral</span> y quiero saber cuánto de <span class="highlight-blue">salario mensual</span> me queda <span class="highlight-blue">a mi</span>.</p>
                         </div>
-                    </div>
-                
-                    <!-- Step two -->
-                    <div class="center step-wrapper" data-step="2">
-                        <h2 id="2nd-main-header"style="display: flex; flex-direction: column;">Ahora ingresa lo siguiente: <span style="font-size: 0.8rem; font-weight: 400;" id="2nd-main-header-note"></span></h2>
-                        <div class="content">
-                            <div class="options">
-                                <div class="text-input-wrapper" id="1st-wrapper">
-                                    <p id="1st-header"></p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="1st-input" type="number" min="0.01" step="0.01" max="150000">
-                                </div>
-                                <div class="text-input-wrapper" id="2nd-wrapper">
-                                    <p id="wrapper-header-gastos">Gastos en el año</p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input"id="2nd-input" type="number" min="0.01" step="0.01" max="150000">
-                                </div>
-                                <div class="text-input-wrapper" id="3rd-wrapper">
-                                    <p>Total aportado al ISSS (requerido)</p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="3rd-input" type="number" min="0.01" step="0.01" max="150000">
-                                </div>
-                                <div class="text-input-wrapper" id="4th-wrapper">
-                                    <p>Total aportado al AFP (requerido)</p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="4th-input" type="number" min="0.01" step="0.01" max="150000">
-                                </div>
-                                <div class="text-input-wrapper" id="5th-wrapper">
-                                    <p>Renta descontada en el año (requerido)</p>
-                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="5th-input" type="number" min="0.01" step="0.01" max="150000">
-                                </div>
-                            </div>
-                            <div class="buttons">
-                                <i class="fa fa-arrow-circle-left fa-3x btn" id="prev-2" title="Regresar"></i>
-                                <i class="fa fa-arrow-circle-right fa-3x btn" id="next-2" title="Siguiente"></i>
-                            </div>
+                    </label>
+
+                    <!-- <label class="card">
+                        <input type="radio" name="main-choices" id="choice-2" value="2">
+                        <div class="card-body">
+                            <p>Tengo un <span class="highlight-red">empleo con dependencia laboral</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
                         </div>
-                    </div>
+                    </label>
 
-                            <!-- Step three -->
-                    <div class="center step-wrapper" data-step="3">
-                        <h2 id="results-main-header"></h2>
-                        <div class="content">
-                            <div class="options">
-                                <div class="results 1st">
-                                    <h3 class="results-header" id="header-1st"></h3>
-                                    <p class="results-value" id="results-1st"></p>
-                                </div>
-
-                                <div class="results 2nd">
-                                    <h3 class="results-header" id="header-2nd"></h3>
-                                    <p class="results-value" id="results-2nd"></p>
-                                </div>
-
-                                <div class="results 3rd">
-                                    <h3 class="results-header" id="header-3rd"></h3>
-                                    <p class="results-value" id="results-3rd"></p>
-                                </div>
-                                
-                                <div class="results 4th">
-                                    <h3 class="results-header" id="header-4th"></h3>
-                                    <p class="results-value" id="results-4th"></p>
-                                </div>
-
-                                <div class="results 5th">
-                                    <h3 class="results-header" id="header-5th"></h3>
-                                    <p class="results-value" id="results-5th"></p>
-                                </div>
-                                
-                                <div class="results 6th">
-                                    <h3 class="results-header" id="header-6th"></h3>
-                                    <p class="results-value" id="results-6th"></p>
-                                </div>
-
-                                <div class="results 7th">
-                                    <h3 class="results-header" id="header-7th"></h3>
-                                    <p class="results-value" id="results-7th"></p>
-                                </div>
-                            </div>
-    
-                            <div class="buttons">
-                                <i class="fa fa-arrow-circle-left fa-3x btn" id="prev-3" title="Regresar"></i>
-                                <i class="fa fa-repeat fa-3x btn" id="reset" title="Repetir"></i>
-                            </div>
+                    <label class="card">
+                        <input type="radio" name="main-choices" id="choice-3" value="3">
+                        <div class="card-body">
+                            <p>Presto <span class="highlight-red">servicios profesionales</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
                         </div>
-                        
-                    </div>
-                </div>
+                    </label> -->
+                </form>
+            </div>
+        </section>
+
+        <section class="page" id="input-page-1">
+            <h1 id="input-header">Ahora necesito que me digas lo siguiente</h1>
+            <div class="content">
+                <p class="note">
+                    <span class="highlight-blue">Tu salario mensual.</span> <br><br>Salario también es conocido como
+                    renumeración, sueldo o estipendio.
+                </p>
+                <br>
+                <label>
+                    <input type="number" name="input-field" id="input-1" class="input-number">
+                </label>
+            </div>
+        </section>
+
+        <section class="page" id="results-page">
+            <h1 id="results-header"></h1>
+            <div class="content">
+                <p id="results-text">
+                </p>
+                <br>
+                <br>
+                <p class="button" id="reset">REINICIAR</p>
             </div>
         </section>
     </main>
-    <footer>
-        <p>Mayo 2020</p>
-    </footer>
+
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
     <script src="scripts/main.js"></script>
 </body>
 </html>
