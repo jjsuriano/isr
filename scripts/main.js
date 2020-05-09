@@ -7,6 +7,8 @@ $(document).ready(function(){
 
     // = = = = = GENERAL = = = = 
 
+    $(".input-number").before("$");
+
     function formatCurrency(total) {
         let neg = false;
         if(total < 0) {

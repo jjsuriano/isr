@@ -36,18 +36,13 @@ main {
     height: 100vh;
     max-width: 100vw;
     text-align: center;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
 }
 
 section {
-    /* height: 100vh;
+    height: 100vh;
     display: grid;
     grid-template-rows: 1fr 4fr;
-    grid-auto-columns: auto; */
+    grid-auto-columns: auto;
 }
 
 .header {
@@ -60,7 +55,7 @@ h1 {
     line-height: 2rem;
     padding: 0 25px;
     max-width: 100%;
-    margin: 0 auto 25px auto;
+    margin: 25px auto 25px auto;
 }
 
 .highlight-blue {
@@ -168,7 +163,7 @@ input[type="number"] {
     }
 
     h1 {
-        margin: 0 auto 50px auto;
+        margin: 50px auto 50px auto;
         line-height: 3rem;
     }
   }
