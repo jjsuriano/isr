@@ -46,23 +46,22 @@ function colorCode(result) {
 }
 
 // CON DEPENDENCIA LABORAL - - - - -
-
-function isss(salario) {
-    if (salario > 1000) {
-      return 1000*0.03
-    }
-    return salario*0.03
-}
-
-function afp(salario) {
-    if (salario > 6500) {
-        return 6500*0.0725
-    }
-    return salario*0.0725
-}
-
 function impuesto_planilla_mensual(salario) {
-    const gravado = salario - isss(salario) - afp(salario);
+    let isss = 0
+    let afp = 0;
+
+    if (salario > 1000) {
+        isss = 1000*0.03
+    }
+    isss = salario*0.03
+
+    if (salario > 6500) {
+        afp = 6500*0.0725
+    }
+    afp = salario*0.0725
+
+    
+    const gravado = salario - isss - afp;
     let porcentaje = 0;
     let base = 0;
     let cuota = 0;

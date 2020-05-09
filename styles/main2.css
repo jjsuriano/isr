@@ -21,6 +21,14 @@ p {
 
 /* - - - - - GENERAL - - - - - */
 
+input[type=number] {
+    -moz-appearance: textfield;
+}
+  
+input:focus, textarea:focus, select:focus, button:focus {
+    outline: none;
+}
+
 main {
     overflow: scroll;
     height: 100vh;
