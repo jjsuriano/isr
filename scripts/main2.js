@@ -21,6 +21,65 @@ $(document).ready(function(){
         return (neg ? "-$" : '$') + parseFloat(total, 10).toFixed(2).replace(/(\d)(?=(\d{3})+\.)/g, "$1,").toString();
     }
 
+    function resultsHeader(option, income) {
+        let header = "";
+
+        if (option == 1) {
+            header = 'Si tus ingresos mensuales son de <span class="highlight-blue" id="result-income">'+ formatCurrency(income) +'</span>';
+        }
+
+        if (option == 2) {
+
+        }
+
+        if (option == 3) {
+
+        }
+        return header;
+
+    }
+
+    function resultsText(option, results) {
+        let text = "";
+
+        let salario = results[0];
+        if (option == 1) {
+            let tramo = ""
+
+            if (results[1] == 1) {
+                tramo = "I";
+            } else if (results[1] == 2 ) {
+                tramo = "II";
+            } else if (results[1] == 3 ) {
+                tramo = "III";
+            } else if (results[1] == 4 ) {
+                tramo = "IV";
+            }
+
+            let isss = results[2];
+            let afp = results[3];
+            let porcentaje = parseInt(results[4]*100);
+            let exceso = formatCurrency(results[5]);
+            let cuota = formatCurrency(results[6]);
+            let impuestos = results[7];
+            let liquidos = formatCurrency(salario - isss - afp - impuestos);
+
+            let part1 = 'Tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span>, tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+            let part2 = '<br><br>Esto significa que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">' + cuota + '</span> y el <span class="highlight-red" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-red" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-red">impuestos</span>.';
+            let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">'+ liquidos +'</span> para comprar y ahorrar.';
+            text = part1 + part2 + part3;
+        }
+
+        if (option == 2) {
+
+        }
+
+        if (option == 3) {
+
+        }
+        return text;
+    }
+
     // = = = = = CON DEPENDENCIA = = = = = 
     function impuesto_planilla_mensual(salario) {
         let isss = 0
@@ -45,7 +104,7 @@ $(document).ready(function(){
     
         if (gravado <= 472) {
             tramo = 1;
-            return [tramo, 0.0, 0.0, 0.0];
+            return [tramo, isss, afp, 0.0, 0.0, 0.0];
         } else if (472.01 <= gravado && gravado <= 895.24) {
             tramo = 2;
             porcentaje = 0.1;
@@ -66,7 +125,7 @@ $(document).ready(function(){
             exceso = gravado - base;
         }
         let impuesto = (exceso * porcentaje) + cuota;
-        return [tramo, porcentaje, cuota, impuesto];
+        return [salario, tramo, isss, afp, porcentaje, exceso, cuota, impuesto];
     }
     
     $('#start').click(function(){
@@ -97,7 +156,13 @@ $(document).ready(function(){
         if(e.which == 13)  {
             if (option == 1 && income != null) {
                 console.log(formatCurrency(income));
-                console.log(impuesto_planilla_mensual(income));
+                
+                $('#results-header').html($('#results-header').text().replace($('#results-header').text(), resultsHeader(1, income)));
+                $('#results-text').html($('#results-text').text().replace($('#results-text').text(), resultsText(1, impuesto_planilla_mensual(income))));
+                
+                $('#input-page-1').fadeOut(500, function(){
+                    $('#results-page').fadeIn(500);
+                })
             }
 
             if (option == 2 || option == 3) {
