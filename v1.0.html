@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Impuestos de mis ingresos en El Salvador</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Calcula el impuesto sobre la renta de tus ingresos en El Salvador.</h1>
+        </nav>
+    </header>
+    <main>
+        <section>
+            <div class="container" id="box">
+                    <!-- Step one -->
+                    <div class="step-wrapper" data-step="1">
+                        <h2 class="center">Elige una de las siguientes opciones.</h1>
+                        <div class="content">
+                            <div class="options">
+                                <label> 
+                                    <input type="radio" name="step-1" class="card-input" id="" value="1">
+                                    <div class="card-body">
+                                        Tengo un empleo con dependencia laboral y quiero saber cuánto de mi salario mensual me queda libre.
+                                    </div>
+                                </label>
+
+                                <label> 
+                                    <input type="radio" name="step-1" class="card-input" id="" value="2">
+                                    <div class="card-body">
+                                        Tengo un empleo con dependencia laboral y quiero saber el valor a pagar al final del año.
+                                    </div>
+                                </label>
+
+                                <label> 
+                                    <input type="radio" name="step-1" class="card-input" id="" value="3">
+                                    <div class="card-body">
+                                        Presto servicios profesionales y quiero saber el valor a pagar al final del año.
+                                    </div>
+                                </label>
+
+                                <!-- <label> 
+                                    <input type="radio" name="step-1" class="card-input" id="" value="3">
+                                    <div class="card-body">
+                                        Tengo empleo y presto servicios profesionales.
+                                    </div>
+                                </label>           -->
+                            </div>
+                                
+                            <div class="center buttons">
+                                <i class="fa fa-arrow-circle-right fa-3x btn" id="next-1" title="Siguiente"></i>
+                            </div>
+                        </div>
+                    </div>
+                
+                    <!-- Step two -->
+                    <div class="center step-wrapper" data-step="2">
+                        <h2 id="2nd-main-header"style="display: flex; flex-direction: column;">Ahora ingresa lo siguiente: <span style="font-size: 0.8rem; font-weight: 400;" id="2nd-main-header-note"></span></h2>
+                        <div class="content">
+                            <div class="options">
+                                <div class="text-input-wrapper" id="1st-wrapper">
+                                    <p id="1st-header"></p>
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="1st-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                                <div class="text-input-wrapper" id="2nd-wrapper">
+                                    <p id="wrapper-header-gastos">Gastos en el año</p>
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input"id="2nd-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                                <div class="text-input-wrapper" id="3rd-wrapper">
+                                    <p>Total aportado al ISSS (requerido)</p>
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="3rd-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                                <div class="text-input-wrapper" id="4th-wrapper">
+                                    <p>Total aportado al AFP (requerido)</p>
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="4th-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                                <div class="text-input-wrapper" id="5th-wrapper">
+                                    <p>Renta descontada en el año (requerido)</p>
+                                    <span><i class="fa fa-dollar" title="USD"></i></span> <input class="text-input" id="5th-input" type="number" min="0.01" step="0.01" max="150000">
+                                </div>
+                            </div>
+                            <div class="buttons">
+                                <i class="fa fa-arrow-circle-left fa-3x btn" id="prev-2" title="Regresar"></i>
+                                <i class="fa fa-arrow-circle-right fa-3x btn" id="next-2" title="Siguiente"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                            <!-- Step three -->
+                    <div class="center step-wrapper" data-step="3">
+                        <h2 id="results-main-header"></h2>
+                        <div class="content">
+                            <div class="options">
+                                <div class="results 1st">
+                                    <h3 class="results-header" id="header-1st"></h3>
+                                    <p class="results-value" id="results-1st"></p>
+                                </div>
+
+                                <div class="results 2nd">
+                                    <h3 class="results-header" id="header-2nd"></h3>
+                                    <p class="results-value" id="results-2nd"></p>
+                                </div>
+
+                                <div class="results 3rd">
+                                    <h3 class="results-header" id="header-3rd"></h3>
+                                    <p class="results-value" id="results-3rd"></p>
+                                </div>
+                                
+                                <div class="results 4th">
+                                    <h3 class="results-header" id="header-4th"></h3>
+                                    <p class="results-value" id="results-4th"></p>
+                                </div>
+
+                                <div class="results 5th">
+                                    <h3 class="results-header" id="header-5th"></h3>
+                                    <p class="results-value" id="results-5th"></p>
+                                </div>
+                                
+                                <div class="results 6th">
+                                    <h3 class="results-header" id="header-6th"></h3>
+                                    <p class="results-value" id="results-6th"></p>
+                                </div>
+
+                                <div class="results 7th">
+                                    <h3 class="results-header" id="header-7th"></h3>
+                                    <p class="results-value" id="results-7th"></p>
+                                </div>
+                            </div>
+    
+                            <div class="buttons">
+                                <i class="fa fa-arrow-circle-left fa-3x btn" id="prev-3" title="Regresar"></i>
+                                <i class="fa fa-repeat fa-3x btn" id="reset" title="Repetir"></i>
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>Mayo 2020</p>
+    </footer>
+    <script src="scripts/main.js"></script>
+</body>
+</html>
