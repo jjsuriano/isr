@@ -52,18 +52,27 @@ section {
 h1 {
     font-weight: 100;
     color: white;
-    line-height: 2rem;
+    line-height: 1.5rem;
     padding: 0 25px;
     max-width: 100%;
     margin: 25px auto 25px auto;
+    font-size: 1.25rem;
 }
 
 .highlight-blue {
-    color: #5da6a8;
+    color: #60bfd6;
 }
 
 .highlight-red {
-    color: #b96262;
+    color: #b16e6e;
+}
+
+.highlight-green {
+    color: #75ad78;
+}
+
+.highlight-yellow {
+    color: #caa860;
 }
 
 .content {  
@@ -75,7 +84,7 @@ h1 {
 .button {
     color: white;
     padding: 7px;
-    background-color: #6aa86f;
+    background-color: #ce8a4b;
     text-align: center;
     width: 150px;
     max-width: 150px;
@@ -109,6 +118,7 @@ h1 {
     min-height: 100px;
     display: flex;
     border-radius: 5px;
+    font-size: 1rem;
 }
 
 .card-body p {

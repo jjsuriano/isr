@@ -68,9 +68,9 @@ $(document).ready(function(){
 
             if (results[1] == 1) {               
                 tramo = "I";
-                let part1 = 'Significa que tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
-                let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
-                let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">'+ liquidos +'</span> para comprar y ahorrar.';
+                let part1 = 'Significa que tu aportación al <span class="highlight-blue">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-blue">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+                let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
+                let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti <span class="highlight-green">te quedan '+ liquidos +'</span> para comprar y ahorrar.';
                 return part1 + part2 + part3;
             } else if (results[1] == 2 ) {
                 tramo = "II";
@@ -80,9 +80,9 @@ $(document).ready(function(){
                 tramo = "IV";
             }
 
-            let part1 = 'Significa que tu aportación al <span class="highlight-red">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-red">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
-            let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">' + cuota + '</span> y el <span class="highlight-red" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-red" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-red">impuestos</span>.';
-            let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti te quedan <span class="highlight-blue" id="result-final">'+ liquidos +'</span> para comprar y ahorrar.';
+            let part1 = 'Significa que tu aportación al <span class="highlight-blue">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-blue">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+            let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-yellow" id="result-cuota">' + cuota + '</span> y el <span class="highlight-yellow" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-yellow" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-yellow">impuestos</span>.';
+            let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti <span class="highlight-green">te quedan '+ liquidos +'</span> para comprar y ahorrar.';
             return part1 + part2 + part3;
     }
 
@@ -103,9 +103,9 @@ $(document).ready(function(){
         if (option == 2) {
             if (results[9] == 1) {               
                 tramo = "I";
-                part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-red">colegiatura</span> y <span class="highlight-red">salud</span>.';
-                part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
-                part3 = '<br><br>Entonces tu recibirás todas tus retenciones, que son <span class="highlight-blue" id="result-final">'+ formatCurrency(retenido) +'</span> al final del año.';
+                part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-yellow">colegiatura</span> y <span class="highlight-yellow">salud</span>.';
+                part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
+                part3 = '<br><br>Entonces tu <span class="highlight-green">recibirás todas tus retenciones</span>, que son <span class="highlight-green">'+ formatCurrency(retenido) +'</span> al final del año.';
                 return part1 + part2 + part3;
             } else if (results[9] == 2 ) {
                 tramo = "II";
@@ -117,14 +117,14 @@ $(document).ready(function(){
             let resultado = impuestos - retenido;
             if (resultado < 0) {
                 resultado = resultado*-1;
-                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que recibirás <span class="highlight-blue">'+ formatCurrency(resultado) +'</span> al final del año.';
+                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que <span class="highlight-green"> recibirás '+ formatCurrency(resultado) +'</span> al final del año.';
             } else if (resultado > 0) {
-                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que te toca pagar <span class="highlight-blue">'+ formatCurrency(resultado) +'</span> al final del año.';
+                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que <span class="highlight-red">te toca pagar '+ formatCurrency(resultado) +'</span> al final del año.';
             } else {
                 part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span>, entonces esto me dice que tu no debes ni te deben.';
             }
-            part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-red">colegiatura</span> y <span class="highlight-red">salud</span>.';
-            part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">' + cuota + '</span> y el <span class="highlight-red" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-red" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-red">impuestos</span>.';
+            part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-blue">colegiatura</span> y <span class="highlight-blue">salud</span>.';
+            part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-yellow">' + cuota + '</span> y el <span class="highlight-yellow" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-yellow">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue">' + formatCurrency(impuestos) + '</span> de <span class="highlight-yellow">impuestos</span>.';
 
             return part1 + part2 + part3;
         }
@@ -132,9 +132,9 @@ $(document).ready(function(){
         if (option == 3) {
             if (results[9] == 1) {               
                 tramo = "I";
-                part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-red">colegiatura</span> y <span class="highlight-red">salud</span>.';
-                part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
-                part3 = '<br><br>Entonces tu recibirás todas tus retenciones, que son <span class="highlight-blue" id="result-final">'+ formatCurrency(retenido) +'</span> al final del año.';
+                part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-blue">colegiatura</span> y <span class="highlight-blue">salud</span>.';
+                part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
+                part3 = '<br><br>Entonces tu <span class="highlight-green">recibirás todas tus retenciones</span>, que son <span class="highlight-green">'+ formatCurrency(retenido) +'</span> al final del año.';
                 return part1 + part2 + part3;
             } else if (results[9] == 2 ) {
                 tramo = "II";
@@ -146,14 +146,14 @@ $(document).ready(function(){
             let resultado = impuestos - retenido;
             if (resultado < 0) {
                 resultado = resultado*-1;
-                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que recibirás <span class="highlight-blue">'+ formatCurrency(resultado) +'</span> al final del año.';
+                part3 = '<br><br>Tus <span class="highlight-blue">retenciones</span> dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que <span class="highlight-green">recibirás '+ formatCurrency(resultado) +'</span> al final del año.';
             } else if (resultado > 0) {
-                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que te toca pagar <span class="highlight-blue">'+ formatCurrency(resultado) +'</span> al final del año.';
+                part3 = '<br><br>Tus <span class="highlight-blue">retenciones</span> dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span> y si sacas la diferencia te darás cuenta que <span class="highlight-red">te toca pagar '+ formatCurrency(resultado) +'</span> al final del año.';
             } else {
-                part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span>, entonces esto me dice que tu no debes ni te deben.';
+                part3 = '<br><br>Tus <span class="highlight-blue">retenciones</span> dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span>, entonces esto me dice que tu no debes ni te deben.';
             }
-            part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-red">colegiatura</span> y <span class="highlight-red">salud</span>.';
-            part2 = '<br><br>Esto me dice que entras en el <span class="highlight-red" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-red" id="result-cuota">' + cuota + '</span> y el <span class="highlight-red" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-red" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-red">impuestos</span>.';
+            part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-blue">colegiatura</span> y <span class="highlight-blue">salud</span>.';
+            part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-yellow" id="result-cuota">' + cuota + '</span> y el <span class="highlight-yellow">' + porcentaje + '%</span> de <span class="highlight-yellow">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue">' + formatCurrency(impuestos) + '</span> de <span class="highlight-blue">impuestos</span>.';
 
             return part1 + part2 + part3;
         }
