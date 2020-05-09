@@ -148,6 +148,10 @@ input[type="number"] {
     border-radius: 5px;
 }
 
+label {
+    font-size: 2rem;
+}
+
 /* - - - - - LARGER SCREENS - - - - - */
 
 @media only screen and (min-width: 720px) {
@@ -165,5 +169,10 @@ input[type="number"] {
     h1 {
         margin: 50px auto 50px auto;
         line-height: 3rem;
+    }
+
+    .card-body {
+        padding: 15px 15px;
+        font-size: 1.5rem;
     }
   }
