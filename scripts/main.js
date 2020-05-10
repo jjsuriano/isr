@@ -291,7 +291,7 @@ $(document).ready(function(){
                 $('#input-page').fadeOut(500, function(){
                     $('#results-page').fadeIn(500);
                 })
-                document.activeElement.blur();
+                
             }
 
             if (option == 2) {
@@ -309,6 +309,8 @@ $(document).ready(function(){
                     $('#input-box-2').fadeIn(500);
                 });
             }
+
+            document.activeElement.blur();
         }
     });
 
@@ -335,8 +337,8 @@ $(document).ready(function(){
                 $('#input-page').fadeOut(500, function(){
                     $('#results-page').fadeIn(500);
                 })
-                document.activeElement.blur();
             }
+            document.activeElement.blur();
         }
 
     });
