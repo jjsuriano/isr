@@ -43,10 +43,13 @@ section {
     display: grid;
     grid-template-rows: 1fr 4fr;
     grid-auto-columns: auto;
+    overflow: visible;
 }
 
 .header {
-    display: flex;
+    display: table;
+    height: 100%;
+    width: 100%;
 }
 
 h1 {
@@ -55,8 +58,9 @@ h1 {
     line-height: 1.5rem;
     padding: 0 25px;
     max-width: 100%;
-    margin: 25px auto 25px auto;
-    font-size: 1.25rem;
+    font-size: 1.5rem;
+    display: table-cell;
+    vertical-align: middle;
 }
 
 .highlight-blue {
@@ -179,6 +183,7 @@ label {
     h1 {
         margin: 50px auto 50px auto;
         line-height: 3rem;
+        font-size: 2rem;
     }
 
     .card-body {
