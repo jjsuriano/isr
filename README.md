@@ -2,6 +2,7 @@
 
 Un simple proyecto para que lo empleados en El Salvador calculen el impuesto sobre la renta de sus salarios. 
 
+https://jjsuriano.github.io/isr/
 
 ¿A quién le es útil esta página web?
 
