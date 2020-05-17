@@ -43,7 +43,6 @@ section {
     display: grid;
     grid-template-rows: 1fr 4fr;
     grid-auto-columns: auto;
-    overflow: visible;
 }
 
 .header {
@@ -80,10 +79,21 @@ h1 {
 }
 
 .content {  
-    padding: 0 25px;
+    padding: 10px 25px;
     margin: 0 auto;
     max-width: 600px;
+    overflow: auto;
 }
+
+/* Hide scrollbar for Chrome, Safari and Opera */
+.content::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE and Edge */
+  .content {
+    -ms-overflow-style: none;
+  }
 
 .button {
     color: white;
