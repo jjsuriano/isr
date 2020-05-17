@@ -36,18 +36,18 @@ $(document).ready(function(){
         let header = "";
 
         if (option == 1) {
-            header = 'Tu salario mensual es <span class="highlight-blue">'+ formatCurrency(income) +'</span>.';
+            header = 'Tu <span class="highlight-yellow">salario mensual</span> es <span class="highlight-blue">'+ formatCurrency(income) +'</span>.';
         }
 
         if (option == 2) {
-            header = 'Tus ingresos en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span>.'
+            header = 'Tus <span class="highlight-yellow">ingresos</span> en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span>.'
         }
 
         if (option == 3) {
             if (expenses == 0 ) {
-                header = 'Tus ingresos en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span> y no tuviste gastos en el año.';
+                header = 'Tus <span class="highlight-yellow">ingresos</span> en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span> y no tuviste gastos en el año.';
             } else {
-                header = 'Tus ingresos en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span> y tus gastos en el año fueron <span class="highlight-blue">'+ formatCurrency(expenses) +'</span>.';
+                header = 'Tus <span class="highlight-yellow">ingresos</span> en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span> y tus gastos en el año fueron <span class="highlight-blue">'+ formatCurrency(expenses) +'</span>.';
             }
             
         }
@@ -69,7 +69,7 @@ $(document).ready(function(){
 
             if (results[1] == 1) {               
                 tramo = "I";
-                let part1 = 'Significa que tu aportación al <span class="highlight-blue">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-blue">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+                let part1 = 'Significa que tu aportación al <span class="highlight-yellow">ISSS</span> es de <span class="highlight-blue">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-yellow">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
                 let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
                 let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti <span class="highlight-green">te quedan '+ liquidos +'</span> para comprar y ahorrar.';
                 return part1 + part2 + part3;
@@ -81,15 +81,13 @@ $(document).ready(function(){
                 tramo = "IV";
             }
 
-            let part1 = 'Significa que tu aportación al <span class="highlight-blue">ISSS</span> es de <span class="highlight-blue" id="result-isss">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-blue">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
+            let part1 = 'Significa que tu aportación al <span class="highlight-yellow">ISSS</span> es de <span class="highlight-blue">'+ formatCurrency(isss) + '</span> y tu aportación al <span class="highlight-yellow">AFP</span> es de <span class="highlight-blue" id="result-afp">'+ formatCurrency(afp) +'</span>. ';
             let part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow" id="result-tramo">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-yellow" id="result-cuota">' + cuota + '</span> y el <span class="highlight-yellow" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-yellow" id="result-porcion">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue" id="result-impuestos">' + formatCurrency(impuestos) + '</span> de <span class="highlight-yellow">impuestos</span>.';
             let part3 = '<br><br>Si restamos todo esto de tu salario mensual, a ti <span class="highlight-green">te quedan '+ liquidos +'</span> para comprar y ahorrar.';
             return part1 + part2 + part3;
     }
 
     function resultsText2(results) {
-        let salario = results[0];
-        let gastos = results[1];
         let isss = results[2];
         let afp = results[3];
         let porcentaje = parseInt(results[4]*100);
@@ -100,7 +98,7 @@ $(document).ready(function(){
         let part1 = '';
         let part2 = '';
         let part3 = '';
-        // -------------------------------------------------------------------------------------- Edit
+        
         if (option == 2) {
             if (results[9] == 1) {               
                 tramo = "I";
@@ -167,13 +165,15 @@ $(document).ready(function(){
     
         if (salario > 1000) {
             isss = 1000*0.03
+        } else {
+            isss = salario*0.03
         }
-        isss = salario*0.03
     
         if (salario > 6500) {
             afp = 6500*0.0725
+        } else {
+            afp = salario*0.0725
         }
-        afp = salario*0.0725
     
         const gravado = salario - isss - afp;
         let tramo = 0
