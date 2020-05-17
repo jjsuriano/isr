@@ -4,6 +4,7 @@ $(document).ready(function(){
     $('#input-box-2').hide();
     $('#input-box-3').hide();
     $('#input-box-4').hide();
+    $('#input-box-5').hide();
     $('#results-page').hide();
 
     let option = 0;
@@ -103,7 +104,7 @@ $(document).ready(function(){
         if (option == 2) {
             if (results[9] == 1) {               
                 tramo = "I";
-                part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-yellow">colegiatura</span> y <span class="highlight-yellow">salud</span>.';
+                part1 = 'Durante todo el año tu aportaste <span class="highlight-blue">' + formatCurrency(isss) + ' </span> al <span class="highlight-yellow">ISSS</span> y <span class="highlight-blue">' + formatCurrency(afp) + '</span> al <span class="highlight-yellow">AFP</span>. <br><br>No nos olvidemos de los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> de gastos automáticos que corresponden a <span class="highlight-yellow">colegiatura</span> y <span class="highlight-yellow">salud</span>.';
                 part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Si caes en este tramo <span class="highlight-blue">no tienes que pagar impuestos</span>.';
                 part3 = '<br><br>Entonces tu <span class="highlight-green">recibirás todas tus retenciones</span>, que son <span class="highlight-green">'+ formatCurrency(retenido) +'</span> al final del año.';
                 return part1 + part2 + part3;
@@ -123,7 +124,7 @@ $(document).ready(function(){
             } else {
                 part3 = '<br><br>Tus retenciones dan un total de <span class="highlight-blue">'+ formatCurrency(retenido) +'</span>, entonces esto me dice que tu no debes ni te deben.';
             }
-            part1 = 'A tus gastos hay que agregarle los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> automáticos que corresponden a <span class="highlight-blue">colegiatura</span> y <span class="highlight-blue">salud</span>.';
+            part1 = 'Durante todo el año tu aportaste <span class="highlight-blue">' + formatCurrency(isss) + ' </span> al <span class="highlight-yellow">ISSS</span> y <span class="highlight-blue">' + formatCurrency(afp) + '</span> al <span class="highlight-yellow">AFP</span>. <br><br>No nos olvidemos de los <span class="highlight-blue">'+ formatCurrency(1600) + '</span> de gastos automáticos que corresponden a <span class="highlight-yellow">colegiatura</span> y <span class="highlight-yellow">salud</span>.';
             part2 = '<br><br>Esto me dice que entras en el <span class="highlight-yellow">tramo ' + tramo + '</span> para el cálculo de tus impuestos. Tus impuestos se dividen en dos partes, la cuota fija de <span class="highlight-yellow">' + cuota + '</span> y el <span class="highlight-yellow" id="result-porcentaje">' + porcentaje + '%</span> de <span class="highlight-yellow">' + exceso + '</span>, sumando esas dos partes nos da un total de <span class="highlight-blue">' + formatCurrency(impuestos) + '</span> de <span class="highlight-yellow">impuestos</span>.';
 
             return part1 + part2 + part3;
@@ -292,9 +293,12 @@ $(document).ready(function(){
         income = $('#input-1').val();
         if (income != '') {
             income = parseFloat(income);
+        } 
+        if (income == isNaN) {
+            income = null;
         }
-        if(e.which == 13)  {
-            if (option == 1 && income != null) {
+        if(e.which == 13 && income != null)  {
+            if (option == 1) {
                 $('#results-header').html($('#results-header').text().replace($('#results-header').text(), resultsHeader(option, income, expenses, health, retirement)));
                 $('#results-text').html($('#results-text').text().replace($('#results-text').text(), resultsText1(impuesto_planilla_mensual(income))));
                 
@@ -305,10 +309,10 @@ $(document).ready(function(){
             }
 
             if (option == 2) {
-                $('#note-2').html($('#note-2').text().replace($('#note-2').text(), '<span class="highlight-blue">Tus gastos en el año.</span> <br><br>Olvídate de los $800 de colegiatura y los $800 de salud, esos ya los tome en cuenta.'));
-                
+                $('#note-3').html($('#note-3').text().replace($('#note-3').text(), '<span class="highlight-blue">Tu aportación al ISSS en el año.</span>'));
+
                 $('#input-box-1').fadeOut(500, function() {
-                    $('#input-box-2').fadeIn(500);
+                    $('#input-box-3').fadeIn(500);
                 });
             }
             
@@ -328,19 +332,13 @@ $(document).ready(function(){
         expenses = $('#input-2').val();
         if (expenses != '') {
             expenses = parseFloat(expenses);
+        } 
+        if (expenses == isNaN) {
+            expenses = null;
         }
 
-        if(e.which == 13)  {
-
-            if (option == 2) {
-                $('#note-3').html($('#note-3').text().replace($('#note-3').text(), '<span class="highlight-blue">Tus rentas retenidas en el año.</span>'));
-
-                $('#input-box-2').fadeOut(500, function() {
-                    $('#input-box-3').fadeIn(500);
-                });
-            }
-            
-            if (option == 3 && income != null) {
+        if(e.which == 13)  {            
+            if (option == 3) {
                 $('#results-header').html($('#results-header').text().replace($('#results-header').text(), resultsHeader(option, income, expenses, health, retirement, taxes)));
                 $('#results-text').html($('#results-text').text().replace($('#results-text').text(), resultsText2(impuestos_anual(income, expenses, health, retirement, taxes))));
                 
@@ -354,16 +352,62 @@ $(document).ready(function(){
     });
 
     $('#input-3').on('keypress',function(e) {
-        taxes = $('#input-3').val();
-        if (taxes != '') {
-            taxes = parseFloat(taxes);
+        health = $('#input-3').val();
+        if (health != '') {
+            health = parseFloat(health);
+        }
+        
+        if (health == isNaN) {
+            health = null;
         }
 
-        health = 0;
-        retirement = 0;
+        if(e.which == 13 && health != null)  {    
+            if (option == 2) {
+                $('#note-4').html($('#note-4').text().replace($('#note-4').text(), '<span class="highlight-blue">Tu aportación al AFP en el año.</span>'));
 
-        if(e.which == 13)  {    
-            if (option == 2 && taxes != null) {
+                $('#input-box-3').fadeOut(500, function() {
+                    $('#input-box-4').fadeIn(500);
+                });
+            }
+            document.activeElement.blur();
+        }
+    });
+
+    $('#input-4').on('keypress',function(e) {
+        retirement = $('#input-4').val();
+        if (retirement != '') {
+            retirement = parseFloat(retirement);
+        } 
+        
+        if (retirement == isNaN) {
+            retirement = null;
+        }
+
+        if(e.which == 13 && retirement != null)  {    
+            if (option == 2) {
+                $('#note-5').html($('#note-5').text().replace($('#note-5').text(), '<span class="highlight-blue">Tu renta retenida en el año.</span>'));
+
+                $('#input-box-4').fadeOut(500, function() {
+                    $('#input-box-5').fadeIn(500);
+                });
+            }
+            document.activeElement.blur();
+        }
+    });
+
+
+    $('#input-5').on('keypress',function(e) {
+        taxes = $('#input-5').val();
+        if (taxes != '') {
+            taxes = parseFloat(taxes);
+        } 
+
+        if (taxes == isNaN) {
+            taxes = null;
+        }
+
+        if(e.which == 13 && taxes != null)  {    
+            if (option == 2) {
                 $('#results-header').html($('#results-header').text().replace($('#results-header').text(), resultsHeader(option, income, expenses, health, retirement, taxes)));
                 $('#results-text').html($('#results-text').text().replace($('#results-text').text(), resultsText2(impuestos_anual(income, expenses, health, retirement, taxes))));
                 
@@ -373,10 +417,7 @@ $(document).ready(function(){
             }
             document.activeElement.blur();
         }
-
-        
     });
-
     
     $('#reset').click(function(){
         $('#results-page').fadeOut(500, function() {
@@ -386,10 +427,12 @@ $(document).ready(function(){
         $('#input-2').val('');
         $('#input-3').val('');
         $('#input-4').val('');
+        $('#input-5').val('');
         $('#input-box-1').show();
         $('#input-box-2').hide();
         $('#input-box-3').hide();
         $('#input-box-4').hide();
+        $('#input-box-5').hide();
     });
 
 });
