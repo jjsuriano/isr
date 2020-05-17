@@ -39,7 +39,7 @@ $(document).ready(function(){
         }
 
         if (option == 2) {
-            
+            header = 'Tus ingresos en el año fueron <span class="highlight-blue">' + formatCurrency(income) + '</span>.'
         }
 
         if (option == 3) {
@@ -99,7 +99,7 @@ $(document).ready(function(){
         let part1 = '';
         let part2 = '';
         let part3 = '';
-        
+        // -------------------------------------------------------------------------------------- Edit
         if (option == 2) {
             if (results[9] == 1) {               
                 tramo = "I";
@@ -268,6 +268,16 @@ $(document).ready(function(){
         option = 1;
     });
 
+    $('#choice-2').click(function(){
+
+        $('#note-1').html($('#note-1').text().replace($('#note-1').text(), '<span class="highlight-blue">Tus ingresos en todo el año.</span>'));
+
+        $('#starting-page').fadeOut(500, function() {
+            $('#input-page').fadeIn(500);
+        })
+        option = 2;
+    });
+
     $('#choice-3').click(function(){
 
         $('#note-1').html($('#note-1').text().replace($('#note-1').text(), '<span class="highlight-blue">Tus ingresos en todo el año.</span>'));
@@ -295,8 +305,8 @@ $(document).ready(function(){
             }
 
             if (option == 2) {
-                $('#note-2').html($('#note-2').text().replace($('#note-2').text(), '<span class="highlight-blue">Tus aportaciones al ISSS en el año.</span>'));
-
+                $('#note-2').html($('#note-2').text().replace($('#note-2').text(), '<span class="highlight-blue">Tus gastos en el año.</span> <br><br>Olvídate de los $800 de colegiatura y los $800 de salud, esos ya los tome en cuenta.'));
+                
                 $('#input-box-1').fadeOut(500, function() {
                     $('#input-box-2').fadeIn(500);
                 });
@@ -323,10 +333,10 @@ $(document).ready(function(){
         if(e.which == 13)  {
 
             if (option == 2) {
-                $('#note-3').html($('#note-3').text().replace($('#note-2').text(), '<span class="highlight-blue">Tus aportaciones al AFP en el año.</span>'));
+                $('#note-3').html($('#note-3').text().replace($('#note-3').text(), '<span class="highlight-blue">Tus rentas retenidas en el año.</span>'));
 
-                $('#input-box-1').fadeOut(500, function() {
-                    $('#input-box-2').fadeIn(500);
+                $('#input-box-2').fadeOut(500, function() {
+                    $('#input-box-3').fadeIn(500);
                 });
             }
             
@@ -341,6 +351,30 @@ $(document).ready(function(){
             document.activeElement.blur();
         }
 
+    });
+
+    $('#input-3').on('keypress',function(e) {
+        taxes = $('#input-3').val();
+        if (taxes != '') {
+            taxes = parseFloat(taxes);
+        }
+
+        health = 0;
+        retirement = 0;
+
+        if(e.which == 13)  {    
+            if (option == 2 && taxes != null) {
+                $('#results-header').html($('#results-header').text().replace($('#results-header').text(), resultsHeader(option, income, expenses, health, retirement, taxes)));
+                $('#results-text').html($('#results-text').text().replace($('#results-text').text(), resultsText2(impuestos_anual(income, expenses, health, retirement, taxes))));
+                
+                $('#input-page').fadeOut(500, function(){
+                    $('#results-page').fadeIn(500);
+                })
+            }
+            document.activeElement.blur();
+        }
+
+        
     });
 
     
