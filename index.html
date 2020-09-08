@@ -1,119 +1,163 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Calculadora de Impuestos para Empleados en El Salvador</title>
-    <link rel="stylesheet" href="styles/main.css">
-</head>
-<body>
+    <link rel="stylesheet" href="./static/css/main.css" />
+  </head>
+  <body>
     <main>
-        <section class="page" id="welcome">
-            <div class="header">
-                <h1>¡Hola!</h1>
-            </div>
-            <div class="content">
+      <section class="page" id="welcome">
+        <div class="header">
+          <h1>¡Hola!</h1>
+        </div>
+        <div class="content">
+          <p>
+            <span class="highlight-blue"
+              >Muchas personas no saben como se calculan los impuestos.</span
+            ><br /><br />
+            Si eres una de esas personas y trabajas en El Salvador, lo más
+            probable es que yo te pueda ayudar.
+          </p>
+          <br />
+          <p class="button" id="start">COMENZAR</p>
+        </div>
+      </section>
+      <section class="page" id="starting-page">
+        <div class="header">
+          <h1 id="starting-header">Elige una de las siguientes opciones.</h1>
+        </div>
+        <div class="content">
+          <form action="" class="cards">
+            <label class="card">
+              <input type="radio" name="main-choices" id="choice-1" value="1" />
+              <div class="card-body">
                 <p>
-                    <span class="highlight-blue">Muchas personas no saben como se calculan los impuestos.</span><br><br>
-                    Si eres una de esas personas y trabajas en El Salvador, lo más probable es que yo te pueda ayudar.
+                  Tengo un
+                  <span class="highlight-yellow"
+                    >empleo con dependencia laboral</span
+                  >
+                  y quiero saber cuánto de
+                  <span class="highlight-blue">salario mensual</span> me queda
+                  <span class="highlight-blue">a mi</span>.
                 </p>
-                <br>
-                <p class="button" id="start">COMENZAR</p>
-            </div>
-            
-        </section>
-        <section class="page" id="starting-page">
-            <div class="header">
-                <h1 id="starting-header">Elige una de las siguientes opciones.</h1>
-            </div>
-            <div class="content">
-                <form action="" class="cards">
-                    <label class="card">
-                        <input type="radio" name="main-choices" id="choice-1" value="1">
-                        <div class="card-body">
-                            <p>Tengo un <span class="highlight-yellow">empleo con dependencia laboral</span> y quiero saber cuánto de <span class="highlight-blue">salario mensual</span> me queda <span class="highlight-blue">a mi</span>.</p>
-                        </div>
-                    </label>
+              </div>
+            </label>
 
-                    <label class="card">
-                        <input type="radio" name="main-choices" id="choice-2" value="2">
-                        <div class="card-body">
-                            <p>Tengo un <span class="highlight-yellow">empleo con dependencia laboral</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
-                        </div>
-                    </label>
-
-                    <label class="card">
-                        <input type="radio" name="main-choices" id="choice-3" value="3">
-                        <div class="card-body">
-                            <p>Presto <span class="highlight-yellow">servicios profesionales</span> y quiero saber el <span class="highlight-blue">valor a pagar al final del año</span>.</p>
-                        </div>
-                    </label>
-                </form>
-            </div>
-        </section>
-
-        <section class="page" id="input-page">
-            <div class="header">
-                <h1 id="input-header">Ahora necesito que me digas lo siguiente.</h1>
-            </div>
-            <div class="content">
-                <div id="input-box-1">
-                    <p id="note-1">
-                    </p>
-                    <br>
-                    <label>
-                        <input type="number" name="input-field" id="input-1" class="input-number">
-                    </label>
-                </div>
-                <div id="input-box-2">
-                    <p id="note-2">
-                    </p>
-                    <br>
-                    <label>
-                        <input type="number" name="input-field" id="input-2" class="input-number">
-                    </label>
-                </div>
-                <div id="input-box-3">
-                    <p id="note-3">
-                    </p>
-                    <br>
-                    <label>
-                        <input type="number" name="input-field" id="input-3" class="input-number">
-                    </label>
-                </div>
-                <div id="input-box-4">
-                    <p id="note-4">
-                    </p>
-                    <br>
-                    <label>
-                        <input type="number" name="input-field" id="input-4" class="input-number">
-                    </label>
-                </div>
-                <div id="input-box-5">
-                    <p id="note-5">
-                    </p>
-                    <br>
-                    <label>
-                        <input type="number" name="input-field" id="input-5" class="input-number">
-                    </label>
-                </div>
-            </div>
-        </section>
-
-        <section class="page" id="results-page">
-            <div class="header">
-                <h1 id="results-header"></h1>
-            </div>
-            <div class="content">
-                <p id="results-text">
+            <label class="card">
+              <input type="radio" name="main-choices" id="choice-2" value="2" />
+              <div class="card-body">
+                <p>
+                  Tengo un
+                  <span class="highlight-yellow"
+                    >empleo con dependencia laboral</span
+                  >
+                  y quiero saber el
+                  <span class="highlight-blue"
+                    >valor a pagar al final del año</span
+                  >.
                 </p>
-                <br>
-                <p class="button" id="reset">REINICIAR</p>
-            </div>
-        </section>
+              </div>
+            </label>
+
+            <label class="card">
+              <input type="radio" name="main-choices" id="choice-3" value="3" />
+              <div class="card-body">
+                <p>
+                  Presto
+                  <span class="highlight-yellow">servicios profesionales</span>
+                  y quiero saber el
+                  <span class="highlight-blue"
+                    >valor a pagar al final del año</span
+                  >.
+                </p>
+              </div>
+            </label>
+          </form>
+        </div>
+      </section>
+
+      <section class="page" id="input-page">
+        <div class="header">
+          <h1 id="input-header">Ahora necesito que me digas lo siguiente.</h1>
+        </div>
+        <div class="content">
+          <div id="input-box-1">
+            <p id="note-1"></p>
+            <br />
+            <label>
+              <input
+                type="number"
+                name="input-field"
+                id="input-1"
+                class="input-number"
+              />
+            </label>
+          </div>
+          <div id="input-box-2">
+            <p id="note-2"></p>
+            <br />
+            <label>
+              <input
+                type="number"
+                name="input-field"
+                id="input-2"
+                class="input-number"
+              />
+            </label>
+          </div>
+          <div id="input-box-3">
+            <p id="note-3"></p>
+            <br />
+            <label>
+              <input
+                type="number"
+                name="input-field"
+                id="input-3"
+                class="input-number"
+              />
+            </label>
+          </div>
+          <div id="input-box-4">
+            <p id="note-4"></p>
+            <br />
+            <label>
+              <input
+                type="number"
+                name="input-field"
+                id="input-4"
+                class="input-number"
+              />
+            </label>
+          </div>
+          <div id="input-box-5">
+            <p id="note-5"></p>
+            <br />
+            <label>
+              <input
+                type="number"
+                name="input-field"
+                id="input-5"
+                class="input-number"
+              />
+            </label>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="results-page">
+        <div class="header">
+          <h1 id="results-header"></h1>
+        </div>
+        <div class="content">
+          <p id="results-text"></p>
+          <br />
+          <p class="button" id="reset">REINICIAR</p>
+        </div>
+      </section>
     </main>
 
-    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
-    <script src="scripts/main.js"></script>
-</body>
+    <script src="./static/js/main.js"></script>
+  </body>
 </html>
