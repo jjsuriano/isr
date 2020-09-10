@@ -1,0 +1,161 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-weight: 200;
+}
+
+html,
+body {
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 28px;
+  padding-top: 25px;
+  background-color: rgb(250, 250, 250);
+}
+
+h1 {
+  font-size: 2rem;
+}
+
+h2 {
+  font-size: 1.75rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+}
+
+h5 {
+  font-size: 1.125rem;
+}
+
+h6 {
+  font-size: 1.1rem;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+label {
+  margin: 0;
+}
+
+section {
+  margin: 25px 0;
+}
+
+.text--primary {
+  font-weight: 300;
+}
+
+.text--secondary {
+  color: gray;
+}
+
+.step__section {
+  margin: 50px 0;
+}
+
+.step__instruction {
+  font-weight: 400;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+/* RADIO INPUTS ----------------------------------------------- RADIO INPUTS */
+.options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.option--radio {
+  box-shadow: 0 0 20px #8080801c;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+.option--header {
+  display: flex;
+  height: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.option--container {
+  height: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  border: solid 3px transparent;
+  background-color: white;
+}
+
+.option--radio input[type="radio"]:checked + .option--container {
+  border: solid 3px #37bd85;
+}
+
+.icon--check {
+  font-size: 20px;
+  color: white;
+}
+
+.icon--container {
+  background-color: #37bd85;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  opacity: 0;
+  transition: opacity 0.1s ease-in-out;
+}
+
+.option--radio
+  input[type="radio"]:checked
+  + .option--container
+  > .option--header
+  > .icon--container {
+  opacity: 1;
+}
+
+input[type="number"] {
+  border: none;
+  box-shadow: 0 0 20px #8080801c;
+  border-radius: 5px;
+  padding: 15px 25px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .options {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .option--container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
