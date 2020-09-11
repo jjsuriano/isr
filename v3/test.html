@@ -35,9 +35,8 @@
         <section id="description">
           <h2>¡Hola!</h2>
           <p>
-            Mucha gente no sabe como se calculan los impuestos sobre la renta,
-            esta página web te ayudará a calcular y a entender lo básico de como
-            se calculan los impuestos para trabajadores en El Salvador.
+            Mucha gente en El Salvador no sabe como se calcula el impuesto sobre
+            la renta. Esta página web te puede ayudar a calcular tus impuestos.
           </p>
         </section>
         <section id="calculator">
@@ -113,7 +112,13 @@
                 </div>
               </label>
               <label for="anual" class="option--radio">
-                <input type="radio" name="step1" id="anual" value="anual" />
+                <input
+                  type="radio"
+                  name="step1"
+                  id="anual"
+                  value="anual"
+                  disabled
+                />
                 <div class="option--container">
                   <div class="option--header">
                     <p class="text--primary inline-block">Anual</p>
@@ -141,10 +146,11 @@
           </div>
         </section>
         <section id="results">
-          <p id="ingresos-output"></p>
+          <!-- <canvas id="composition-chart"></canvas> -->
         </section>
       </div>
     </main>
+    <script src="currency.js"></script>
     <script src="test.js"></script>
   </body>
 </html>

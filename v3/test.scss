@@ -49,6 +49,10 @@ label {
   margin: 0;
 }
 
+hr {
+  margin: 15px 0;
+}
+
 section {
   margin: 25px 0;
 }
@@ -75,8 +79,9 @@ section {
 
 /* RADIO INPUTS ----------------------------------------------- RADIO INPUTS */
 .options {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: nowrap;
+  width: 100%;
   gap: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
@@ -86,6 +91,7 @@ section {
   box-shadow: 0 0 20px #8080801c;
   border-radius: 10px;
   cursor: pointer;
+  width: 50%;
 }
 
 input[type="radio"] {
@@ -138,6 +144,7 @@ input[type="radio"] {
 }
 
 input[type="number"] {
+  width: 50%;
   border: none;
   box-shadow: 0 0 20px #8080801c;
   border-radius: 5px;
@@ -145,17 +152,46 @@ input[type="number"] {
   cursor: pointer;
 }
 
+.results-heading {
+  text-transform: uppercase;
+  font-weight: 400;
+}
+
+.results-text {
+  font-size: 1.25rem;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
 @media screen and (max-width: 768px) {
   .options {
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: 1fr 1fr;
-    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .option--radio {
+    width: 100%;
   }
 
   .option--container {
     display: flex;
     flex-direction: column;
     justify-content: center;
+  }
+
+  input[type="number"] {
+    width: 100%;
+  }
+
+  .results-text {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .results-text {
+    font-size: 0.7rem;
   }
 }
