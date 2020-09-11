@@ -140,7 +140,8 @@ function changeIngresos() {
   ingresos = value <= 0 ? null : currency(value);
   if (ingresos != null) {
     displayResults();
-    window.scrollTo(0, document.body.scrollHeight);
+    console.log(document.body.scrollHeight);
+    window.scrollTo(0, 1100);
   } else {
     removeResults();
   }
