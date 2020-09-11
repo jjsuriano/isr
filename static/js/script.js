@@ -34,7 +34,7 @@ function createMonthlyResults(composition) {
   ingresosOut.id = "ingresos-output";
   ingresosOut.className = "results-text";
   ingresosOut.innerHTML =
-    '<span class="results-heading">ingresos mensuales</span><span>' +
+    '<span class="results-heading">ingreso mensual</span><span>' +
     ingresos.format() +
     "</span>";
   resultsSection.appendChild(ingresosOut);

@@ -94,8 +94,6 @@ section {
 }
 
 .option--radio {
-  -webkit-box-shadow: 0 0 20px #00000046;
-          box-shadow: 0 0 20px #00000046;
   border-radius: 10px;
   cursor: pointer;
   width: 50%;
@@ -166,8 +164,6 @@ input[type="radio"]:checked
 input[type="number"] {
   width: 50%;
   border: none;
-  -webkit-box-shadow: 0 0 20px #00000046;
-          box-shadow: 0 0 20px #00000046;
   border-radius: 5px;
   padding: 15px 25px;
   cursor: pointer;
@@ -196,6 +192,29 @@ input[type="number"] {
 }
 
 @media screen and (max-width: 768px) {
+  html,
+  body {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 18px;
+  }
+  h1 {
+    font-size: 2rem;
+  }
+  h2 {
+    font-size: 1.75rem;
+  }
+  h3 {
+    font-size: 1.5rem;
+  }
+  h4 {
+    font-size: 1.25rem;
+  }
+  h5 {
+    font-size: 1.125rem;
+  }
+  h6 {
+    font-size: 1.1rem;
+  }
   .options {
     -ms-flex-wrap: wrap;
         flex-wrap: wrap;
@@ -214,18 +233,23 @@ input[type="number"] {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+    padding: 15px;
+  }
+  .icon--container {
+    width: 20px;
+    height: 20px;
+  }
+  .icon--check {
+    font-size: 10px;
   }
   input[type="number"] {
     width: 100%;
-  }
-  .results-text {
-    font-size: 0.85rem;
   }
 }
 
 @media screen and (max-width: 420px) {
   .results-text {
-    font-size: 0.7rem;
+    font-size: 1rem;
   }
 }
 /*# sourceMappingURL=main.css.map */
