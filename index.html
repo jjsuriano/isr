@@ -3,161 +3,154 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Calculadora de Impuestos para Empleados en El Salvador</title>
-    <link rel="stylesheet" href="./static/css/main.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link
+      rel="shortcut icon"
+      href="./static/img/favicon.png"
+      type="image/x-icon"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <link rel="stylesheet" href="/static/css/main.css" />
+
+    <title>Calculadora de ISR | El Salvador</title>
   </head>
-  <body>
+  <body class="container">
+    <header>
+      <h1>Calculadora de ISR para trabajadores en El Salvador</h1>
+    </header>
     <main>
-      <section class="page" id="welcome">
-        <div class="header">
-          <h1>¡Hola!</h1>
-        </div>
-        <div class="content">
+      <div class="content">
+        <section id="description">
+          <h2>¡Hola!</h2>
           <p>
-            <span class="highlight-blue"
-              >Muchas personas no saben como se calculan los impuestos.</span
-            ><br /><br />
-            Si eres una de esas personas y trabajas en El Salvador, lo más
-            probable es que yo te pueda ayudar.
+            Mucha gente en El Salvador no sabe como se calcula el impuesto sobre
+            la renta. Esta página web te puede ayudar a calcular tus impuestos.
           </p>
-          <br />
-          <p class="button" id="start">COMENZAR</p>
-        </div>
-      </section>
-      <section class="page" id="starting-page">
-        <div class="header">
-          <h1 id="starting-header">Elige una de las siguientes opciones.</h1>
-        </div>
-        <div class="content">
-          <form action="" class="cards">
-            <label class="card">
-              <input type="radio" name="main-choices" id="choice-1" value="1" />
-              <div class="card-body">
-                <p>
-                  Tengo un
-                  <span class="highlight-yellow"
-                    >empleo con dependencia laboral</span
-                  >
-                  y quiero saber cuánto de
-                  <span class="highlight-blue">salario mensual</span> me queda
-                  <span class="highlight-blue">a mi</span>.
-                </p>
-              </div>
-            </label>
+        </section>
+        <section id="calculator">
+          <div class="step__section" id="step-0">
+            <p class="step__instruction">¿Qué tipo de trabajo tienes?</p>
+            <div class="options">
+              <label for="planilla" class="option--radio">
+                <input
+                  type="radio"
+                  name="step0"
+                  id="planilla"
+                  checked="checked"
+                  value="planilla"
+                />
+                <div class="option--container">
+                  <div class="option--header">
+                    <p class="text--primary inline-block">Planilla</p>
+                    <span class="icon--container">
+                      <i class="fa fa-check icon--check"></i>
+                    </span>
+                  </div>
+                  <p class="text--secondary">
+                    Eres empleado y tienes dependencia laboral
+                  </p>
+                </div>
+              </label>
+              <label for="honorario" class="option--radio">
+                <input
+                  type="radio"
+                  name="step0"
+                  id="honorario"
+                  value="honorario"
+                />
+                <div class="option--container">
+                  <div class="option--header">
+                    <p class="text--primary inline-block">Honorario</p>
+                    <span class="icon--container">
+                      <i class="fa fa-check icon--check"></i>
+                    </span>
+                  </div>
 
-            <label class="card">
-              <input type="radio" name="main-choices" id="choice-2" value="2" />
-              <div class="card-body">
-                <p>
-                  Tengo un
-                  <span class="highlight-yellow"
-                    >empleo con dependencia laboral</span
-                  >
-                  y quiero saber el
-                  <span class="highlight-blue"
-                    >valor a pagar al final del año</span
-                  >.
-                </p>
-              </div>
-            </label>
+                  <p class="text--secondary">
+                    Ofreces servicios profesionales y no tienes dependencia
+                    laboral
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="step__section" id="step-1">
+            <p class="step__instruction">
+              ¿Quieres calcular los impuestos para tu ingreso mensual o anual?
+            </p>
+            <div class="options">
+              <label for="mensual" class="option--radio">
+                <input
+                  type="radio"
+                  name="step1"
+                  id="mensual"
+                  checked="checked"
+                  value="mensual"
+                />
+                <div class="option--container">
+                  <div class="option--header">
+                    <p class="text--primary inline-block">Mensual</p>
+                    <span class="icon--container">
+                      <i class="fa fa-check icon--check"></i>
+                    </span>
+                  </div>
+                  <p class="text--secondary">
+                    Total de ingresos al final del mes
+                  </p>
+                </div>
+              </label>
+              <label for="anual" class="option--radio">
+                <input
+                  type="radio"
+                  name="step1"
+                  id="anual"
+                  value="anual"
+                  disabled
+                />
+                <div class="option--container">
+                  <div class="option--header">
+                    <p class="text--primary inline-block">Anual</p>
+                    <span class="icon--container">
+                      <i class="fa fa-check icon--check"></i>
+                    </span>
+                  </div>
 
-            <label class="card">
-              <input type="radio" name="main-choices" id="choice-3" value="3" />
-              <div class="card-body">
-                <p>
-                  Presto
-                  <span class="highlight-yellow">servicios profesionales</span>
-                  y quiero saber el
-                  <span class="highlight-blue"
-                    >valor a pagar al final del año</span
-                  >.
-                </p>
-              </div>
-            </label>
-          </form>
-        </div>
-      </section>
-
-      <section class="page" id="input-page">
-        <div class="header">
-          <h1 id="input-header">Ahora necesito que me digas lo siguiente.</h1>
-        </div>
-        <div class="content">
-          <div id="input-box-1">
-            <p id="note-1"></p>
-            <br />
-            <label>
+                  <p class="text--secondary">
+                    Total de ingresos al final del año
+                  </p>
+                </div>
+              </label>
+            </div>
+          </div>
+          <div class="step__section" id="step-2">
+            <p class="step__instruction">¿Cuánto es el total de ingresos?</p>
+            <div class="options">
               <input
                 type="number"
-                name="input-field"
-                id="input-1"
-                class="input-number"
+                id="ingresos-input"
+                placeholder="Escribe los ingresos aquí"
               />
-            </label>
+            </div>
           </div>
-          <div id="input-box-2">
-            <p id="note-2"></p>
-            <br />
-            <label>
-              <input
-                type="number"
-                name="input-field"
-                id="input-2"
-                class="input-number"
-              />
-            </label>
-          </div>
-          <div id="input-box-3">
-            <p id="note-3"></p>
-            <br />
-            <label>
-              <input
-                type="number"
-                name="input-field"
-                id="input-3"
-                class="input-number"
-              />
-            </label>
-          </div>
-          <div id="input-box-4">
-            <p id="note-4"></p>
-            <br />
-            <label>
-              <input
-                type="number"
-                name="input-field"
-                id="input-4"
-                class="input-number"
-              />
-            </label>
-          </div>
-          <div id="input-box-5">
-            <p id="note-5"></p>
-            <br />
-            <label>
-              <input
-                type="number"
-                name="input-field"
-                id="input-5"
-                class="input-number"
-              />
-            </label>
-          </div>
-        </div>
-      </section>
-
-      <section class="page" id="results-page">
-        <div class="header">
-          <h1 id="results-header"></h1>
-        </div>
-        <div class="content">
-          <p id="results-text"></p>
-          <br />
-          <p class="button" id="reset">REINICIAR</p>
-        </div>
-      </section>
+        </section>
+        <section id="results">
+          <!-- <canvas id="composition-chart"></canvas> -->
+        </section>
+      </div>
     </main>
-
-    <script src="./static/js/main.js"></script>
+    <script src="/static/js/currency.js"></script>
+    <script src="/static/js/main.js"></script>
   </body>
 </html>
