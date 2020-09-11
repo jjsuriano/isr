@@ -207,6 +207,7 @@ input[type="number"] {
   body {
     font-family: "Nunito Sans", sans-serif;
     font-size: 18px;
+    padding-top: 10px;
   }
   h1 {
     font-size: 2rem;
