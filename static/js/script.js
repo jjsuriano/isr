@@ -40,14 +40,15 @@ function createMonthlyResults(composition) {
   resultsSection.appendChild(ingresosOut);
   for (let i = 0; i < Object.keys(composition).length; i++) {
     let temp = document.createElement("p");
+    const currentKey = Object.keys(composition)[i];
     resultsSection.appendChild(document.createElement("hr"));
-    temp.id = Object.keys(composition)[i] + "-output";
+    temp.id = currentKey + "-output";
     temp.className = "results-text";
     temp.innerHTML =
       '<span class="results-heading">' +
-      Object.keys(composition)[i] +
+      currentKey +
       "</span><span>" +
-      composition[Object.keys(composition)[i]] +
+      composition[currentKey] +
       "</span>";
     resultsSection.appendChild(temp);
   }

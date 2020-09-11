@@ -79,6 +79,12 @@ section {
   display: inline-block;
 }
 
+.hide {
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+}
+
 /* RADIO INPUTS ----------------------------------------------- RADIO INPUTS */
 .options {
   display: flex;
