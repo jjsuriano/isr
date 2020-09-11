@@ -88,7 +88,6 @@ section {
   -ms-flex-wrap: nowrap;
       flex-wrap: nowrap;
   width: 100%;
-  gap: 1rem;
   margin-top: 0.5rem;
   margin-bottom: 1rem;
 }
@@ -97,6 +96,7 @@ section {
   border-radius: 10px;
   cursor: pointer;
   width: 50%;
+  margin: 10px;
 }
 
 input[type="radio"] {
@@ -168,6 +168,7 @@ input[type="number"] {
   padding: 15px 25px;
   cursor: pointer;
   background-color: #293038;
+  margin: 10px;
 }
 
 .results-heading {
@@ -214,6 +215,9 @@ input[type="number"] {
   }
   h6 {
     font-size: 1.1rem;
+  }
+  .step__section {
+    margin: 25px 0;
   }
   .options {
     -ms-flex-wrap: wrap;
