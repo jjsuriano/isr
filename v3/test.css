@@ -5,6 +5,7 @@
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-weight: 200;
+  color: white;
 }
 
 html,
@@ -12,7 +13,7 @@ body {
   font-family: "Nunito Sans", sans-serif;
   font-size: 28px;
   padding-top: 25px;
-  background-color: #fafafa;
+  background-color: #343c46;
 }
 
 h1 {
@@ -52,6 +53,7 @@ label {
 
 hr {
   margin: 15px 0;
+  background-color: #5a687a;
 }
 
 section {
@@ -92,8 +94,8 @@ section {
 }
 
 .option--radio {
-  -webkit-box-shadow: 0 0 20px #8080801c;
-          box-shadow: 0 0 20px #8080801c;
+  -webkit-box-shadow: 0 0 20px #00000046;
+          box-shadow: 0 0 20px #00000046;
   border-radius: 10px;
   cursor: pointer;
   width: 50%;
@@ -121,7 +123,7 @@ input[type="radio"] {
   padding: 20px;
   border-radius: 10px;
   border: solid 3px transparent;
-  background-color: white;
+  background-color: #293038;
 }
 
 .option--radio input[type="radio"]:checked + .option--container {
@@ -164,11 +166,12 @@ input[type="radio"]:checked
 input[type="number"] {
   width: 50%;
   border: none;
-  -webkit-box-shadow: 0 0 20px #8080801c;
-          box-shadow: 0 0 20px #8080801c;
+  -webkit-box-shadow: 0 0 20px #00000046;
+          box-shadow: 0 0 20px #00000046;
   border-radius: 5px;
   padding: 15px 25px;
   cursor: pointer;
+  background-color: #293038;
 }
 
 .results-heading {
