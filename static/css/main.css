@@ -122,15 +122,15 @@ input[type="radio"] {
           justify-content: space-between;
 }
 
-.option--container {
+.option--radio-container {
   height: 100%;
   padding: 20px;
   border-radius: 10px;
-  border: solid 3px transparent;
+  border: solid 3px #343c46;
   background-color: #293038;
 }
 
-.option--radio input[type="radio"]:checked + .option--container {
+.option--radio input[type="radio"]:checked + .option--radio-container {
   border: solid 3px #37bd85;
 }
 
@@ -161,20 +161,27 @@ input[type="radio"] {
 
 .option--radio
 input[type="radio"]:checked
-+ .option--container
++ .option--radio-container
 > .option--header
 > .icon--container {
   opacity: 1;
 }
 
 input[type="number"] {
-  width: 50%;
   border: none;
   border-radius: 5px;
   padding: 15px 25px;
   cursor: pointer;
   background-color: #293038;
   margin: 10px;
+}
+
+.option--input-container {
+  width: calc(100% - 20px);
+}
+
+.option--input {
+  width: calc(100% - 20px);
 }
 
 #results {
@@ -237,7 +244,7 @@ input[type="number"] {
   .option--radio {
     width: 100%;
   }
-  .option--container {
+  .option--radio-container {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;

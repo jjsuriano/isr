@@ -39,6 +39,12 @@
             sobre la renta. Esta página web te puede ayudar a calcular tus
             impuestos.
           </p>
+          <p class="mt-3">Para realizar el cáculo tienes que:</p>
+          <ul class="ml-4">
+            <li>Elegir el tipo de trabajo que tienes</li>
+            <li>Elegir si tus ingresos son mensuales o anuales</li>
+            <li>Escribir el total de tus ingresos</li>
+          </ul>
         </section>
         <section id="calculator">
           <div class="step__section" id="step-0">
@@ -52,7 +58,7 @@
                   checked="checked"
                   value="planilla"
                 />
-                <div class="option--container">
+                <div class="option--radio-container">
                   <div class="option--header">
                     <p class="text--primary inline-block">Planilla</p>
                     <span class="icon--container">
@@ -71,7 +77,7 @@
                   id="honorario"
                   value="honorario"
                 />
-                <div class="option--container">
+                <div class="option--radio-container">
                   <div class="option--header">
                     <p class="text--primary inline-block">Honorario</p>
                     <span class="icon--container">
@@ -100,7 +106,7 @@
                   checked="checked"
                   value="mensual"
                 />
-                <div class="option--container">
+                <div class="option--radio-container">
                   <div class="option--header">
                     <p class="text--primary inline-block">Mensual</p>
                     <span class="icon--container">
@@ -120,7 +126,7 @@
                   value="anual"
                   disabled
                 />
-                <div class="option--container">
+                <div class="option--radio-container">
                   <div class="option--header">
                     <p class="text--primary inline-block">Anual</p>
                     <span class="icon--container">
@@ -136,13 +142,19 @@
             </div>
           </div>
           <div class="step__section" id="step-2">
-            <p class="step__instruction">¿Cuánto es el total de ingresos?</p>
             <div class="options">
-              <input
-                type="number"
-                id="ingresos-input"
-                placeholder="Escribe los ingresos aquí"
-              />
+              <div class="option--input-container">
+                <p class="step__instruction">
+                  ¿Cuánto es el total de ingresos?
+                </p>
+                <input
+                  type="number"
+                  id="ingresos-input"
+                  class="option--input"
+                  placeholder="Escribe los ingresos aquí"
+                />
+              </div>
+              <div class="option--input-container"></div>
             </div>
           </div>
         </section>
